@@ -1,0 +1,23 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.sortMembers": "explicit"
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#22c55e",
+    "textMateRules": [
+      {
+        "scope": "comment.block",
+        "settings": {
+          "fontStyle": "bold"
+        }
+      }
+    ]
+  },
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.expo/**": true
+  }
+}
