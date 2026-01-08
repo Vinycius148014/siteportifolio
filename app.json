@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "siteportifolio",
+    "slug": "site-portifolio",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/icons/insta.png",
+    "scheme": "siteportifolio",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./public/icons/insta.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./public/icons/insta.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a824d5cd-8d01-41cd-baf1-b87ba80e878b"
+      }
+    },
+    "owner": "vinycius148014"
+  }
+}

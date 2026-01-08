@@ -1,0 +1,181 @@
+import { Link } from "expo-router";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Pressable, Text, View, useWindowDimensions } from "react-native";
+import { botao, textobotao, textoselecionado } from "../components/estilos";
+import "../global.css";
+
+
+export default function portifolio() {
+
+    const { width } = useWindowDimensions();
+
+    const fontSize = width * 0.0110;
+
+    const fontSizeVertical = width * 0.0150;
+
+    const [openMenu, setOpenMenu] = useState(false);
+
+    return (
+        <View className="flex-1 bg-white">
+
+            {/* ASSINATURA */}
+            <View className="fixed bottom-2 left-2 z-40">
+                <Text className={"text-white text-xs"}>© 2025 Vinicius Marchetti</Text>
+            </View>
+
+            {/* HEADER FIXO */}
+            <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center">
+                <Link href="/" asChild>
+                    <Pressable className="w-fit justify-center items-center p-1">
+                        <motion.img
+                            src="/icons/MinhaBranca.png"
+                            className="w-auto h-8 ml-3"
+                            animate={{ scale: 1.2 }}
+                            whileHover={{ scale: 1.26 }}
+                            transition={{ type: "spring", stiffness: 100 }}
+                        />
+                    </Pressable>
+                </Link>
+
+                <Pressable
+                    onPress={() => setOpenMenu(true)}
+                    className="sm:hidden ml-auto"
+                >
+                    <img src="/icons/3linha.svg" className="w-7 h-7" />
+                </Pressable>
+
+                <View className="hidden sm:flex sm:flex-row ml-auto gap-7">
+                    <Link href="/" asChild>
+                        <Pressable className={botao}>
+                            <Text className={textobotao}>Início</Text>
+                        </Pressable>
+                    </Link>
+
+                    <Link href="/portifolio" asChild>
+                        <Pressable className={botao}>
+                            <Text className={textobotao}>Portfólio</Text>
+                        </Pressable>
+                    </Link>
+
+                    <Link href="/sobre" asChild>
+                        <Pressable className={botao}>
+                            <Text className={textoselecionado}>Sobre</Text>
+                        </Pressable>
+                    </Link>
+
+                    <Link href="/contato" asChild>
+                        <Pressable className={botao}>
+                            <Text className={textobotao}>Contato</Text>
+                        </Pressable>
+                    </Link>
+                </View>
+            </View>
+
+            {/*---------------------------------------- SIDEBAR MENU --------------------------------- */}
+
+            {openMenu && (
+                <>
+                    {/* BACKDROP — clica e fecha */}
+                    <Pressable
+                        className="fixed inset-0 bg-black/60 z-40"
+                        onPress={() => setOpenMenu(false)}
+                    />
+
+                    {/* SIDEBAR */}
+                    <motion.div
+                        initial={{ x: -200, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -200, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="fixed left-0 top-0 h-full w-64 bg-black z-50 shadow-xl p-6"
+                    >
+                        <img
+                            src="/icons/MinhaBranca.png"
+                            className="w-auto h-11" />
+
+                        <Link href="/" asChild>
+                            <Pressable className="py-3 flex-row mt-5 items-center justify-start gap-2">
+                                <img src="/icons/home.svg" className="w-5 h-5" />
+                                <Text className="text-xl text-white">Início</Text>
+                            </Pressable>
+                        </Link>
+
+                        <Link href="/portifolio" asChild>
+                            <Pressable className="py-3 flex-row items-center justify-start gap-2">
+                                <img src="/icons/cameraBranca.svg" className="w-5 h-5" />
+                                <Text className="text-xl text-white">Portfólio</Text>
+                            </Pressable>
+                        </Link>
+
+                        <Link href="/sobre" asChild>
+                            <Pressable className="py-3 flex-row items-center justify-start gap-2">
+                                <img src="/icons/pessoa.svg" className="w-5 h-5" />
+                                <Text className="text-xl text-white">Sobre</Text>
+                            </Pressable>
+                        </Link>
+
+                        <Link href="/contato" asChild>
+                            <Pressable className="py-3 flex-row items-center justify-start gap-2">
+                                <img src="/icons/telefoneBranco.svg" className="w-5 h-5" />
+                                <Text className="text-xl text-white">Contato</Text>
+                            </Pressable>
+                        </Link>
+                    </motion.div>
+                </>
+            )}
+
+            {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
+
+
+            <View className="relative bg-black pt-[64px] w-full overflow-hidden">
+                {/* FUNDO */}
+                <View className="relative min-h-[calc(100dvh-64px)] w-full overflow-hidden">
+
+                    <img
+                        src="/images/2carrofundo.jpg"
+                        className="absolute inset-0 w-full h-full object-cover opacity-30"
+                        alt="fundo"
+                    />
+
+
+                    {/* FRENTEEEE */}
+
+                    {/* FRENTE: ocupa todo o espaço do container pai */}
+                    <View className="md:flex-row flex-col h-full z-20 absolute inset-0 items-center justify-center w-full">
+
+                        {/* ESQUERDA */}
+                        <View className="w-1/2 flex items-center justify-center gap-6 h-full">
+                            <img
+                                src="/icons/eu.jpg"
+                                className="h-auto max-w-96 aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                                alt="eu"
+                            />
+
+                            <img src="/icons/MinhaBranca.png" className="h-auto max-w-64" alt="logo" />
+                        </View>
+
+                        {/* DIREITA */}
+                        <View className="w-1/2 h-full px-12 flex items-center justify-center">
+                            <View className="max-w-3xl">
+                                <Text
+                                    style={{ fontSize: width < 768 ? fontSizeVertical : fontSize }}
+                                    className="font-bold text-white text-justify leading-relaxed"
+                                >
+                                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC, apaixonado por registrar momentos que contam histórias de verdade.
+                                    Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial, sempre buscando unir criatividade, emoção e identidade em cada clique.
+                                    <br /><br />
+                                    Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios. Em trabalhos comerciais, por exemplo, minhas fotos ajudam empresas a se posicionarem melhor, divulgarem produtos e alcançarem mais pessoas com qualidade e impacto visual.
+                                    <br /><br />
+                                    Gosto de fotografar de forma leve, descontraída e natural, criando um ambiente confortável para que tudo aconteça com espontaneidade — e principalmente, gosto de produzir imagens que despertem emoções, que façam sentido para quem vê e que transmitam aquilo que nem sempre as palavras conseguem explicar. Seja em um evento cheio de energia, em um ensaio pessoal, num registro automotivo ou numa produção comercial, meu objetivo é sempre entregar algo que marque.
+                                    <br /><br />
+                                    Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto!
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        </View>
+    );
+}
