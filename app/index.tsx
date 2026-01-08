@@ -235,7 +235,8 @@ export default function App() {
 
               <Link href="/portifolio?filter=esportiva" asChild>
                 <Pressable className={botao}>
-                  <Text className={textobotao}>Esportiva</Text>
+                  <Text className={"text-center text-white text-2xl font-thin hover:underline hover:decoration-2 hover:underline-offset-4"}>
+                    Esportiva</Text>
                 </Pressable>
               </Link>
 
@@ -253,7 +254,8 @@ export default function App() {
 
               <Link href="/portifolio?filter=automotiva" asChild>
                 <Pressable className={botao}>
-                  <Text className={textobotao}>Automotiva</Text>
+                  <Text className={"text-center text-white text-2xl font-thin hover:underline hover:decoration-2 hover:underline-offset-4"}>
+                    Automotiva</Text>
                 </Pressable>
               </Link>
 
@@ -271,17 +273,18 @@ export default function App() {
 
               <Link href="/portifolio?filter=ensaios" asChild>
                 <Pressable className={botao}>
-                  <Text className={textobotao}>Ensaios</Text>
+                  <Text className={"text-center text-white text-2xl font-thin hover:underline hover:decoration-2 hover:underline-offset-4"}>
+                    Ensaios</Text>
                 </Pressable>
               </Link>
 
               <AutoCarousel
                 images={[
-                  "/images/bikear.avif",
-                  "/images/bikear.avif",
-                  "/images/bikear.avif",
-                  "/images/bikear.avif",
-                  "/images/bikear.avif",
+                  "/images/ensaios/9-574.avif",
+                  "/images/ensaios/9-575.avif",
+                  "/images/ensaios/9-578.avif",
+                  "/images/ensaios/9-580.avif",
+                  "/images/ensaios/9-582.avif",
                 ]} />
             </View>
 
@@ -289,7 +292,8 @@ export default function App() {
 
               <Link href="/portifolio?filter=motociclismo" asChild>
                 <Pressable className={botao}>
-                  <Text className={textobotao}>Motociclismo</Text>
+                  <Text className={"text-center text-white text-2xl font-thin hover:underline hover:decoration-2 hover:underline-offset-4"}>
+                    Motociclismo</Text>
                 </Pressable>
               </Link>
 
