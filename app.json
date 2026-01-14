@@ -4,7 +4,7 @@
     "slug": "site-portifolio",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./public/icons/insta.png",
+    "icon": "./public/icons/eu.jpg",
     "scheme": "siteportifolio",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,14 +14,14 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./public/icons/insta.png"
+        "foregroundImage": "./public/icons/eu.jpg"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./public/icons/insta.png",
+      "favicon": "./public/icons/eu.jpg",
       "bundler": "metro"
     },
     "plugins": [
@@ -29,7 +29,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./public/icons/eu.jpg",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",

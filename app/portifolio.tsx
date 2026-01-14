@@ -55,7 +55,6 @@ export default function portifolio() {
         { src: "/images/mulherporsche.avif", category: "automotiva" },
         { src: "/images/automotiva/9-527.avif", category: "automotiva" },
         { src: "/images/automotiva/9-517.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-524.avif", category: "automotiva" },
         { src: "/images/automotiva/9-525.avif", category: "automotiva" },
         { src: "/images/automotiva/9-526.avif", category: "automotiva" },
         { src: "/images/automotiva/9-520.avif", category: "automotiva" },
@@ -65,20 +64,45 @@ export default function portifolio() {
         { src: "/images/automotiva/9-563.avif", category: "automotiva" },
 
 
-/*---------------------------------------- ENSAIOS --------------------------------- */
+        /*---------------------------------------- ENSAIOS --------------------------------- */
 
-        { src: "/images/ensaios/9-541.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-542.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-543.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-544.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-545.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-546.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-547.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-548.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-549.avif", category: "ensaios" },
-        { src: "/images/ensaios/9-550.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-573.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-574.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-575.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-576.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-577.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-578.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-579.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-580.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-581.avif", category: "ensaios" },
+        { src: "/images/ensaios/9-582.avif", category: "ensaios" },
 
-/*---------------------------------------- MOTOCICLISMO --------------------------------- */
+        { src: "/images/ensaios/corporativa-01.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-07.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-03.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-04.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-02.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-06.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-05.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-09.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-10.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-16.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-14.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-08.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-18.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-13.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-11.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-15.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-17.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-19.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-12.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-20.avif", category: "ensaios" },
+        { src: "/images/ensaios/corporativa-21.avif", category: "ensaios" },
+
+
+
+
+        /*---------------------------------------- MOTOCICLISMO --------------------------------- */
 
         { src: "/images/motociclismo/9-532.avif", category: "motociclismo" },
         { src: "/images/motociclismo/9-533.avif", category: "motociclismo" },
@@ -94,7 +118,7 @@ export default function portifolio() {
         { src: "/images/motociclismo/9-562.avif", category: "motociclismo" },
         { src: "/images/motociclismo/9-560.avif", category: "motociclismo" },
 
-/*---------------------------------------- ESPORTIVA --------------------------------- */
+        /*---------------------------------------- ESPORTIVA --------------------------------- */
 
         { src: "/images/esportiva/9-496.avif", category: "esportiva" },
         { src: "/images/esportiva/9-495.avif", category: "esportiva" },
@@ -111,7 +135,7 @@ export default function portifolio() {
         { src: "/images/esportiva/9-489.avif", category: "esportiva" },
         { src: "/images/esportiva/9-488.avif", category: "esportiva" },
         { src: "/images/esportiva/9-492.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-503.avif", category: "esportiva" },        
+        { src: "/images/esportiva/9-503.avif", category: "esportiva" },
         { src: "/images/esportiva/9-490.avif", category: "esportiva" },
         { src: "/images/esportiva/9-491.avif", category: "esportiva" },
         { src: "/images/esportiva/9-493.avif", category: "esportiva" },
@@ -128,11 +152,45 @@ export default function portifolio() {
         { src: "/images/esportiva/9-501.avif", category: "esportiva" },
         { src: "/images/esportiva/9-505.avif", category: "esportiva" },
         { src: "/images/esportiva/9-482.avif", category: "esportiva" },
-        
+
     ];
 
+
+ const [showBalloon, setShowBalloon] = useState(false);
+
+useEffect(() => {
+  const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
+
+  // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
+  if (alreadyShown === "true") return;
+
+  const timer = setTimeout(() => {
+    setShowBalloon(true);
+    sessionStorage.setItem("whatsBalloonShown", "true");
+  }, 7000);
+
+  return () => clearTimeout(timer);
+}, []);
+
+
+
+
+    const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer:fine)"); // desktop/mouse
+    const update = () => setIsDesktop(mq.matches);
+
+    update();
+    mq.addEventListener("change", update);
+
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+
+
     // filtros disponíveis (ordem mostrada nas abas)
-    const FILTERS = ["all", "esportiva", "automotiva", "ensaios", "motociclismo", "eventos", "comercial"];
+    const FILTERS = ["all", "esportiva", "automotiva", "ensaios", "motociclismo"];
 
     const params = useLocalSearchParams();
 
@@ -202,11 +260,50 @@ export default function portifolio() {
     return (
         <View className="flex-1 bg-white">
             {/* ASSINATURA */}
-            <View className="fixed bottom-2 left-2 z-40">
+            <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
                 <Text className={"text-white text-xs"}>
                     © 2025 Vinicius Marchetti
                 </Text>
             </View>
+
+
+            {/* WHATSAPP */}
+            <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2`}>
+
+                {/* BALÃO */}
+                {showBalloon && (
+                    <div className="relative animate-fadeIn">
+
+                        {/* BOTÃO FECHAR */}
+                        <button
+                            onClick={() => {
+                                setShowBalloon(false);
+                            }}
+                            className="absolute sm:-top-3 sm:-left-3 -top-4 -left-4 w-7 h-7 z-50 bg-black text-white rounded-full text-xs flex items-center justify-center hover:bg-gray-800"
+                        >
+                            X
+                        </button>
+
+                        {/* IMAGEM DO BALÃO */}
+                        <img
+                            src="/icons/balao.svg"
+                            alt="Chame no WhatsApp"
+                            className="lg:h-20 sm:h-16 h-14 drop-shadow-lg" />
+                    </div>
+                )}
+
+                {/* BOTÃO WHATSAPP */}
+                <a
+                    href="https://wa.me/5549984006881"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
+                >
+                    <img src="/icons/wpp.png" />
+                </a>
+
+
+            </div>
 
             {/*---------------------------------------- HEADER --------------------------------- */}
             <View className="fixed top-0 left-0 w-full h-16 bg-black items-center flex-row p-4 z-0">
