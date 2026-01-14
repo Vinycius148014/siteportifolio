@@ -1,12 +1,44 @@
 import { Link } from "expo-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Text, View, useWindowDimensions } from "react-native";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
 
 export default function portifolio() {
+
+    const [showBalloon, setShowBalloon] = useState(false);
+
+    useEffect(() => {
+        const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
+
+        // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
+        if (alreadyShown === "true") return;
+
+        const timer = setTimeout(() => {
+            setShowBalloon(true);
+            sessionStorage.setItem("whatsBalloonShown", "true");
+        }, 7000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+
+
+
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia("(pointer:fine)"); // desktop/mouse
+        const update = () => setIsDesktop(mq.matches);
+
+        update();
+        mq.addEventListener("change", update);
+
+        return () => mq.removeEventListener("change", update);
+    }, []);
+
 
     const { width } = useWindowDimensions();
 
@@ -20,9 +52,30 @@ export default function portifolio() {
         <View className="flex-1 bg-white">
 
             {/* ASSINATURA */}
-            <View className="fixed bottom-2 left-2 z-40">
-                <Text className={"text-white text-xs"}>© 2025 Vinicius Marchetti</Text>
+            <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
+                <Text className={"text-white text-xs"}>
+                    © 2025 Vinicius Marchetti
+                </Text>
             </View>
+
+
+            {/* WHATSAPP */}
+            <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2`}>
+
+                
+
+                {/* BOTÃO WHATSAPP */}
+                <a
+                    href="https://wa.me/5549984006881"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
+                >
+                    <img src="/icons/wpp.png" />
+                </a>
+
+
+            </div>
 
             {/* HEADER FIXO */}
             <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center">

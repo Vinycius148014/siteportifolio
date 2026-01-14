@@ -157,7 +157,7 @@ export default function portifolio() {
 
             <View className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none">
 
-                <View className="bg-white mx-6 px-6 sm:px-12 py-8 rounded-lg shadow-white max-w-[1100px] max-h-[85vh] w-auto overflow-auto pointer-events-auto shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                <View className="bg-white mx-6 px-6 sm:px-12 py-8 rounded-lg shadow-white max-w-[1100px] max-h-[85vh] w-auto overflow-auto pointer-events-auto shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                     {/* CABEÇALHO */}
                     <View className="items-center justify-center pt-2 pb-4 w-full">
@@ -173,7 +173,7 @@ export default function portifolio() {
                         {/* WHATSAPP */}
                         <Pressable
                             onPress={() => Linking.openURL(url)}
-                            className="px-4 py-3 w-full rounded-xl flex-row items-center gap-4 shadow-black hover:bg-gray-200 hover:shadow-none shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                            className="px-4 py-3 w-full rounded-xl flex-row items-center gap-4 shadow-black hover:bg-gray-200 hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]"
                             style={{ backgroundColor: "#00e676" }}>
 
                             <img
@@ -190,7 +190,7 @@ export default function portifolio() {
                         {/* INSTAGRAM */}
                         <Pressable
                             onPress={() => Linking.openURL(url2)}
-                            className="w-full h-auto rounded-xl overflow-hidden flex-row items-center px-4 py-3 gap-4 shadow-black hover:bg-gray-200 hover:shadow-none shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            className="w-full h-auto rounded-xl overflow-hidden flex-row items-center px-4 py-3 gap-4 shadow-black hover:bg-gray-200 hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
                                 src="/icons/bannerinsta.png"
@@ -211,7 +211,7 @@ export default function portifolio() {
                         {/* EMAIL */}
                         <Pressable
                             onPress={() => Linking.openURL(emailUrl)}
-                            className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:bg-slate-900 hover:shadow-none shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
                                 src="/icons/email.svg"
@@ -226,7 +226,7 @@ export default function portifolio() {
                         {/* BANLEK */}
                         <Pressable
                             onPress={() => Linking.openURL(banlek)}
-                            className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:bg-slate-900 hover:shadow-none shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
                                 src="/icons/banlek.png"

@@ -1,13 +1,51 @@
 import { Link } from "expo-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
 import AutoCarousel from "../components/carrossel";
 import Depoimentos from "../components/depoimentos";
 import { botao, textobotao, textoselecionado, viewcarrossel } from "../components/estilos";
 import "../global.css";
 
+
 export default function App() {
+
+
+
+  const [showBalloon, setShowBalloon] = useState(false);
+
+useEffect(() => {
+  const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
+
+  // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
+  if (alreadyShown === "true") return;
+
+  const timer = setTimeout(() => {
+    setShowBalloon(true);
+    sessionStorage.setItem("whatsBalloonShown", "true");
+  }, 7000);
+
+  return () => clearTimeout(timer);
+}, []);
+
+
+
+
+
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer:fine)"); // desktop/mouse
+    const update = () => setIsDesktop(mq.matches);
+
+    update();
+    mq.addEventListener("change", update);
+
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+
+
 
   const { width } = useWindowDimensions();
 
@@ -30,17 +68,58 @@ export default function App() {
 
   const [openMenu, setOpenMenu] = useState(false);
 
-
+  const phone = "5549984006881"; // DDI + DDD + número (sem espaços)
+  const message = "Olá, vim pelo seu portfólio!";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   return (
     <View className="flex-1 bg-white">
 
       {/* ASSINATURA */}
-      <View className="absolute bottom-2 left-2 z-40 ">
+      <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
         <Text className={"text-white text-xs"}>
           © 2025 Vinicius Marchetti
         </Text>
       </View>
+
+
+      {/* WHATSAPP */}
+      <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2 sm:gap-4`}>
+
+        {/* BALÃO */}
+        {showBalloon && (
+          <div className="relative animate-fadeIn">
+
+            {/* BOTÃO FECHAR */}
+            <button
+              onClick={() => setShowBalloon(false)}
+              className="absolute sm:-top-3 sm:-left-3 -top-4 -left-4 w-7 h-7 z-50 bg-black text-white rounded-full text-xs flex items-center justify-center hover:bg-gray-800"
+            >
+              X
+            </button>
+
+            {/* IMAGEM DO BALÃO */}
+            <img
+              src="/icons/balao.svg"
+              alt="Chame no WhatsApp"
+              className="lg:h-20 sm:h-16 h-14 drop-shadow-lg" />
+          </div>
+        )}
+
+        {/* BOTÃO WHATSAPP */}
+        <a
+          href="https://wa.me/5549984006881"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
+        >
+          <img src="/icons/wpp.png" />
+        </a>
+
+
+      </div>
+
+
 
       {/*---------------------------------------- HEADER --------------------------------- */}
       <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
@@ -153,14 +232,29 @@ export default function App() {
 
       <ScrollView className="flex-1 mt-16">
 
-        {/*---------------------------------------- MEU NOME E PORTIFÓLIO --------------------------------- */}
+        {/*---------------------------------------- PRIMEIRA PÁGINA --------------------------------- */}
 
         <View className="relative w-full h-[calc(100dvh-64px)] overflow-hidden bg-black items-center justify-center">
 
 
-          <img
-            src="/images/roderafundo.jpg"
-            className="absolute inset-0 w-full h-full object-cover opacity-40" />
+          {/* VIDEO BACKGROUND */}
+          <video
+            src="/videos/30fps.mov"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="
+      absolute inset-0
+      w-full h-full
+      object-contain
+      pointer-events-none
+      -z-10
+      bg-black
+      opacity-30
+    "
+          />
 
           <View className="flex-row w-full h-auto xl:mt-12">
 
@@ -169,17 +263,17 @@ export default function App() {
             <View className="w-1/3 items-center justify-center gap-8 h-auto">
 
               <img src="/icons/eu.jpg" className="w-auto aspect-square rounded-lg max-h-72 min-w-48 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]" />
-              <img src="/icons/MinhaBranca.png" className="z-20 max-w-48 h-auto" />
+              <img src="/icons/MinhaBranca.png" className="z-20 max-w-48 h-auto hidden sm:flex" />
 
             </View>
 
             <View className="w-1/3 h-auto" />
 
           </View>
-          <View className="items-center justify-center w-full h-1/3 gap-12 xl:justify-start xl:mt-9">
+          <View className="items-center justify-center w-full h-1/3 gap-12 xl:justify-start mt-10 sm:mt-4 xl:mt-9">
 
             <Text className="text-center text-lg sm:text-2xl text-white mx-12 sm:mx-24">Fotógrafo em Chapecó–SC, especializado em fotografia esportiva, automotiva e comercial.</Text>
-            <View className="flex-row items-center justify-center w-full h-fit gap-7">
+            <View className="flex-row items-center justify-center w-full h-fit gap-5 sm:gap-10">
 
 
               <motion.div
@@ -188,7 +282,7 @@ export default function App() {
                 className="flex-row items-center justify-center w-fit">
 
                 <Link href="/portifolio" asChild>
-                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
                     <img src="/icons/cameraBranca.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                     <Text className="text-center text-white text-md sm:text-lg">
                       Ver portifolio
@@ -205,7 +299,7 @@ export default function App() {
                 className="flex-row items-center justify-center w-fit">
 
                 <Link href="/contato" asChild>
-                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
                     <img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                     <Text className="text-center text-white text-md sm:text-lg">
                       Entrar em contato
@@ -281,10 +375,11 @@ export default function App() {
               <AutoCarousel
                 images={[
                   "/images/ensaios/9-574.avif",
-                  "/images/ensaios/9-575.avif",
+                  "/images/ensaios/corporativa-05.avif",
                   "/images/ensaios/9-578.avif",
-                  "/images/ensaios/9-580.avif",
-                  "/images/ensaios/9-582.avif",
+                  "/images/ensaios/corporativa-11.avif",
+                  "/images/ensaios/corporativa-09.avif",
+
                 ]} />
             </View>
 
@@ -317,9 +412,9 @@ export default function App() {
             className="flex-row items-center justify-center w-fit">
 
             <Link href="/portifolio" asChild>
-              <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit mb-10 py-4 px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-                <img src="/icons/cameraBranca.svg" className="w-7 h-7" />
-                <Text className="text-center text-white text-lg">
+              <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit mb-10 py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                <img src="/icons/cameraBranca.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
+                <Text className="text-center text-white text-md sm:text-lg">
                   Ver portifolio
                 </Text>
               </Pressable>

@@ -2,6 +2,7 @@
 const depoimentos1 = [
     "/prints/9-465.avif",
     "/prints/9-466.avif",
+    "/prints/9-475.png",
     "/prints/9-467.avif",
     "/prints/9-468.avif",
     "/prints/9-469.avif",
@@ -20,6 +21,7 @@ const depoimentos2 = [
     "/prints/9-474.avif",
     "/prints/9-465.avif",
     "/prints/9-466.avif",
+    "/prints/9-475.png",
     "/prints/9-467.avif",
     "/prints/9-468.avif",
     "/prints/9-469.avif",
