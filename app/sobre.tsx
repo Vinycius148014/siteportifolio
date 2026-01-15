@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Pressable, Text, View, useWindowDimensions } from "react-native";
+import { Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -40,11 +40,35 @@ export default function portifolio() {
     }, []);
 
 
+
+
     const { width } = useWindowDimensions();
 
-    const fontSize = width * 0.0110;
+    let dynamicFont = 18; // fallback
 
-    const fontSizeVertical = width * 0.0150;
+    if (width < 400) {
+        dynamicFont = 12;         // mobile MUITO pequeno
+    }
+    else if (width < 538) {
+        dynamicFont = width * 0.022;   // mobile normal com escala melhor
+    }
+    else if (width < 668) {
+        dynamicFont = width * 0.020;   // mobile normal com escala melhor
+    }
+    else if (width < 748) {
+        dynamicFont = 13;   // mobile normal com escala melhor
+    }
+    else if (width < 1024) {
+        dynamicFont = width * 0.014;         // APENAS md → fixo
+    }
+    else {
+        dynamicFont = 16; // telas grandes
+    }
+
+    const isMobile = width < 400;
+
+
+
 
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -78,7 +102,7 @@ export default function portifolio() {
             </div>
 
             {/* HEADER FIXO */}
-            <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center">
+            <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center justify-center">
                 <Link href="/" asChild>
                     <Pressable className="w-fit justify-center items-center p-1">
                         <motion.img
@@ -93,10 +117,12 @@ export default function portifolio() {
 
                 <Pressable
                     onPress={() => setOpenMenu(true)}
-                    className="sm:hidden ml-auto"
+                    className="sm:hidden fixed left-4"
                 >
                     <img src="/icons/3linha.svg" className="w-7 h-7" />
                 </Pressable>
+
+
 
                 <View className="hidden sm:flex sm:flex-row ml-auto gap-7">
                     <Link href="/" asChild>
@@ -179,64 +205,82 @@ export default function portifolio() {
             )}
 
             {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
+            <ScrollView
+                scrollEnabled={isMobile}
+                className="flex-1 bg-black"
+                contentContainerStyle={!isMobile ? ({ flexGrow: 1 } as any) : undefined}>
+
+                <View className="relative bg-black pt-[64px] w-full overflow-hidden">
+                    {/* FUNDO */}
+                    <View className="relative sm:min-h-[calc(100dvh-64px)] min-h-[calc(170dvh-64px)] w-full overflow-hidden">
 
 
-            <View className="relative bg-black pt-[64px] w-full overflow-hidden">
-                {/* FUNDO */}
-                <View className="relative min-h-[calc(100dvh-64px)] w-full overflow-hidden">
+                        {/* Imagem DESKTOP (>= sm) */}
+                        <img
+                            src="/images/fundosobre.avif"
+                            className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-30"
+                        />
 
-                    <img
-                        src="/images/fundosobre.avif"
-                        className="absolute inset-0 w-full h-full object-cover opacity-30"
-                        alt="fundo"
-                    />
+                        {/* Imagem MOBILE (< sm) */}
+                        <img
+                            src="/images/fundofogos.jpg"
+                            className="block sm:hidden absolute inset-0 w-full h-full object-cover opacity-30"
+                        />
 
 
-                    {/* FRENTEEEE */}
 
-                    {/* FRENTE: ocupa todo o espaço do container pai */}
-                    <View className="md:flex-row flex-col h-full z-20 absolute inset-0 items-center justify-center w-full">
+                        {/* FRENTEEEE */}
 
-                        {/* ESQUERDA */}
-                        <View className="w-1/2 flex items-center justify-center gap-6 h-full">
-                            <img
-                                src="/images/selfie.jpg"
-                                className="h-auto max-w-96 aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
-                                alt="eu"
-                            />
+                        {/* FRENTE: ocupa todo o espaço do container pai */}
+                        <View className="md:flex-row flex h-full z-20 absolute inset-0 items-center justify-center w-full">
 
-                            <img src="/icons/MinhaBranca.png" className="h-auto max-w-64" alt="logo" />
-                        </View>
+                            {/* ESQUERDA */}
+                            <View className="w-auto md:h-full h-1/3 md:w-2/5 lg:w-1/3 flex-row items-center justify-center xl:justify-end xl:pr-8 lg:pr-0">
 
-                        {/* DIREITA */}
-                        <View className="w-1/2 h-full px-12 flex items-center justify-center ">
-                            <View className="max-w-3xl items-center justify-center gap-8">
-                                <Text
-                                    style={{ fontSize: width < 768 ? fontSizeVertical : fontSize }}
-                                    className="font-bold text-white text-justify leading-relaxed">
-                                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa, sempre buscando unir criatividade, emoção e utilidade em cada clique.
-                                    <br /><br />
-                                    Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios.
-                                    <br />
-                                    Em trabalhos comerciais, por exemplo, minhas fotos ajudam empresas a se posicionarem melhor, divulgarem produtos e alcançarem mais pessoas com qualidade e impacto visual.
-                                    <br /><br />
-                                    Gosto de fotografar de forma descontraída e natural, criando um ambiente confortável para que tudo aconteça com espontaneidade — e sempre busco registrar imagens que transmitam emoção e tenham significado para quem vê. Seja em um evento cheio de energia, em um ensaio pessoal, num registro automotivo ou numa produção comercial, meu objetivo é entregar um resultado verdadeiro e bem construído.
-                                    <br /><br />
-                                    Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto. Entre em contato comigo no botão abaixo!
-                                </Text>
-                                <Link href="/contato" asChild>
-                                    <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-                                        <img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
-                                        <Text className="text-center text-white text-md sm:text-lg">
-                                            Entrar em contato
-                                        </Text>
-                                    </Pressable>
-                                </Link>
+                                <View className="flex-col items-center h-full md:h-auto justify-center md:w-4/5 gap-6 p-8">
+                                    
+                                    <img
+                                        src="/images/selfie.jpg"
+                                        className="md:h-auto md:w-full h-full w-auto aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                                        alt="eu"
+                                    />
+
+                                    <img src="/icons/MinhaBranca.png" className="h-12 w-auto md:h-auto md:w-full px-12 hidden md:flex" alt="logo" />
+                                </View>
+
+                            </View>
+
+                            {/* DIREITA */}
+                            <View className="w-auto  pt-0 md:pt-0 px-8 md:px-0 md:h-full h-2/3 md:w-3/5 lg:w-2/3 flex items-center md:justify-center justify-start xl:pr-0 md:pr-10">
+                                <View className="max-w-3xl items-center justify-center">
+                                    <Text className="text-5xl font-thin text-center text-white mb-8">Sobre mim:</Text>
+                                    <Text
+                                        style={{ fontSize: dynamicFont }}
+                                        className="font-bold text-white text-justify leading-relaxed">
+                                        Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa, sempre buscando unir criatividade, emoção e utilidade em cada clique.
+                                        <br /><br />
+                                        Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios.
+                                        <br />
+                                        Em trabalhos comerciais, por exemplo, minhas fotos ajudam empresas a se posicionarem melhor, divulgarem produtos e alcançarem mais pessoas com qualidade e impacto visual.
+                                        <br /><br />
+                                        Gosto de fotografar de forma descontraída e natural, criando um ambiente confortável para que tudo aconteça com espontaneidade — e sempre busco registrar imagens que transmitam emoção e tenham significado para quem vê. Seja em um evento cheio de energia, em um ensaio pessoal, num registro automotivo ou numa produção comercial, meu objetivo é entregar um resultado verdadeiro e bem construído.
+                                        <br /><br />
+                                        Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto. Entre em contato comigo no botão abaixo!
+                                    </Text>
+                                    <Link href="/contato" asChild>
+                                        <Pressable className="flex-row gap-2 mt-7 backdrop-blur-sm w-fit py-3 px-4 md:py-4 md:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                                            <img src="/icons/telefoneBranco.svg" className="md:w-6 md:h-6 w-4 h-4" />
+                                            <Text className="text-center text-white text-md md:text-lg">
+                                                Entrar em contato
+                                            </Text>
+                                        </Pressable>
+                                    </Link>
+                                </View>
                             </View>
                         </View>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         </View>
     );
 }
