@@ -14,19 +14,19 @@ export default function App() {
 
   const [showBalloon, setShowBalloon] = useState(false);
 
-useEffect(() => {
-  const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
+  useEffect(() => {
+    const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
 
-  // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
-  if (alreadyShown === "true") return;
+    // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
+    if (alreadyShown === "true") return;
 
-  const timer = setTimeout(() => {
-    setShowBalloon(true);
-    sessionStorage.setItem("whatsBalloonShown", "true");
-  }, 7000);
+    const timer = setTimeout(() => {
+      setShowBalloon(true);
+      sessionStorage.setItem("whatsBalloonShown", "true");
+    }, 7000);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
 
 
@@ -230,7 +230,7 @@ useEffect(() => {
 
       {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
 
-      <ScrollView className="flex-1 mt-16">
+      <ScrollView className="flex-1 mt-16 bg-black">
 
         {/*---------------------------------------- PRIMEIRA PÁGINA --------------------------------- */}
 
@@ -318,9 +318,17 @@ useEffect(() => {
 
         <View className="relative bg-black h-fit w-screen items-center justify-start">
 
+          {/* Imagem DESKTOP (>= sm) */}
           <img
-            className="absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
-            src="/images/bmshopping.jpg" />
+            src="/images/fundopadel.jpg"
+            className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
+          />
+
+          {/* Imagem MOBILE (< sm) */}
+          <img
+            src="/images/fundofogos.jpg"
+            className="block sm:hidden absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
+          />
 
           <Text className="text-white text-3xl sm:text-4xl font-bold mt-16 mx-8 text-center mb-8">Cada momento conta. Veja alguns dos meus trabalhos.</Text>
 
@@ -454,7 +462,7 @@ useEffect(() => {
 
             <View className="z-20 px-10 w-full lg:w-1/3 md:w-1/2 h-1/4 md:h-full  items-center justify-center">
               <img
-                src="/icons/eu.jpg"
+                src="/images/selfie.jpg"
                 className="md:max-w-96 md:h-auto md:w-full w-auto h-full aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
               />
             </View>
