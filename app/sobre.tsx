@@ -62,7 +62,7 @@ export default function portifolio() {
             {/* WHATSAPP */}
             <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2`}>
 
-                
+
 
                 {/* BOTÃO WHATSAPP */}
                 <a
@@ -186,7 +186,7 @@ export default function portifolio() {
                 <View className="relative min-h-[calc(100dvh-64px)] w-full overflow-hidden">
 
                     <img
-                        src="/images/2carrofundo.jpg"
+                        src="/images/fundosobre.avif"
                         className="absolute inset-0 w-full h-full object-cover opacity-30"
                         alt="fundo"
                     />
@@ -200,7 +200,7 @@ export default function portifolio() {
                         {/* ESQUERDA */}
                         <View className="w-1/2 flex items-center justify-center gap-6 h-full">
                             <img
-                                src="/icons/eu.jpg"
+                                src="/images/selfie.jpg"
                                 className="h-auto max-w-96 aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
                                 alt="eu"
                             />
@@ -209,21 +209,29 @@ export default function portifolio() {
                         </View>
 
                         {/* DIREITA */}
-                        <View className="w-1/2 h-full px-12 flex items-center justify-center">
-                            <View className="max-w-3xl">
+                        <View className="w-1/2 h-full px-12 flex items-center justify-center ">
+                            <View className="max-w-3xl items-center justify-center gap-8">
                                 <Text
                                     style={{ fontSize: width < 768 ? fontSizeVertical : fontSize }}
-                                    className="font-bold text-white text-justify leading-relaxed"
-                                >
-                                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC, apaixonado por registrar momentos que contam histórias de verdade.
-                                    Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial, sempre buscando unir criatividade, emoção e identidade em cada clique.
+                                    className="font-bold text-white text-justify leading-relaxed">
+                                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa, sempre buscando unir criatividade, emoção e utilidade em cada clique.
                                     <br /><br />
-                                    Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios. Em trabalhos comerciais, por exemplo, minhas fotos ajudam empresas a se posicionarem melhor, divulgarem produtos e alcançarem mais pessoas com qualidade e impacto visual.
+                                    Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios.
+                                    <br />
+                                    Em trabalhos comerciais, por exemplo, minhas fotos ajudam empresas a se posicionarem melhor, divulgarem produtos e alcançarem mais pessoas com qualidade e impacto visual.
                                     <br /><br />
-                                    Gosto de fotografar de forma leve, descontraída e natural, criando um ambiente confortável para que tudo aconteça com espontaneidade — e principalmente, gosto de produzir imagens que despertem emoções, que façam sentido para quem vê e que transmitam aquilo que nem sempre as palavras conseguem explicar. Seja em um evento cheio de energia, em um ensaio pessoal, num registro automotivo ou numa produção comercial, meu objetivo é sempre entregar algo que marque.
+                                    Gosto de fotografar de forma descontraída e natural, criando um ambiente confortável para que tudo aconteça com espontaneidade — e sempre busco registrar imagens que transmitam emoção e tenham significado para quem vê. Seja em um evento cheio de energia, em um ensaio pessoal, num registro automotivo ou numa produção comercial, meu objetivo é entregar um resultado verdadeiro e bem construído.
                                     <br /><br />
-                                    Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto!
+                                    Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto. Entre em contato comigo no botão abaixo!
                                 </Text>
+                                <Link href="/contato" asChild>
+                                    <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                                        <img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
+                                        <Text className="text-center text-white text-md sm:text-lg">
+                                            Entrar em contato
+                                        </Text>
+                                    </Pressable>
+                                </Link>
                             </View>
                         </View>
                     </View>
