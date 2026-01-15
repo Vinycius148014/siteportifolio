@@ -156,36 +156,36 @@ export default function portifolio() {
     ];
 
 
- const [showBalloon, setShowBalloon] = useState(false);
+    const [showBalloon, setShowBalloon] = useState(false);
 
-useEffect(() => {
-  const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
+    useEffect(() => {
+        const alreadyShown = sessionStorage.getItem("whatsBalloonShown");
 
-  // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
-  if (alreadyShown === "true") return;
+        // se já mostrou nessa sessão, não mostra de novo ao trocar de rota
+        if (alreadyShown === "true") return;
 
-  const timer = setTimeout(() => {
-    setShowBalloon(true);
-    sessionStorage.setItem("whatsBalloonShown", "true");
-  }, 7000);
+        const timer = setTimeout(() => {
+            setShowBalloon(true);
+            sessionStorage.setItem("whatsBalloonShown", "true");
+        }, 7000);
 
-  return () => clearTimeout(timer);
-}, []);
+        return () => clearTimeout(timer);
+    }, []);
 
 
 
 
     const [isDesktop, setIsDesktop] = useState(false);
 
-  useEffect(() => {
-    const mq = window.matchMedia("(pointer:fine)"); // desktop/mouse
-    const update = () => setIsDesktop(mq.matches);
+    useEffect(() => {
+        const mq = window.matchMedia("(pointer:fine)"); // desktop/mouse
+        const update = () => setIsDesktop(mq.matches);
 
-    update();
-    mq.addEventListener("change", update);
+        update();
+        mq.addEventListener("change", update);
 
-    return () => mq.removeEventListener("change", update);
-  }, []);
+        return () => mq.removeEventListener("change", update);
+    }, []);
 
 
 
@@ -306,27 +306,30 @@ useEffect(() => {
             </div>
 
             {/*---------------------------------------- HEADER --------------------------------- */}
-            <View className="fixed top-0 left-0 w-full h-16 bg-black items-center flex-row p-4 z-0">
+            <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
+
+
+                <Pressable
+                    onPress={() => setOpenMenu(true)}
+                    className="sm:hidden fixed left-4"
+                >
+                    <img src="/icons/3linha.svg" className="w-7 h-7" />
+                </Pressable>
+
                 <Link href="/" asChild>
-                    <Pressable className="w-fit justify-center items-center">
+                    <Pressable className="w-fit justify-center items-center p-1">
+
                         <motion.img
                             src="/icons/MinhaBranca.png"
                             className="w-auto h-8 ml-3"
                             animate={{ scale: 1.2 }}
                             whileHover={{ scale: 1.26 }}
                             transition={{ type: "spring", stiffness: 100 }} />
+
                     </Pressable>
                 </Link>
 
-                <Pressable
-                    onPress={() => setOpenMenu(true)}
-                    className="sm:hidden ml-auto"
-                >
-                    <img src="/icons/3linha.svg" className="w-7 h-7" />
-                </Pressable>
-
                 <View className="hidden sm:flex sm:flex-row ml-auto gap-7">
-
                     <Link href="/" asChild>
                         <Pressable className={botao}>
                             <Text className={textobotao}>Início</Text>

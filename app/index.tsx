@@ -453,11 +453,11 @@ export default function App() {
 
           {/*---------------------------------------- SOBRE MIM: FRENTE --------------------------------- */}
 
-          <View className=" md:flex-row flex-col w-full h-[calc(100dvh-64px)] z-20 absolute items-center">
+          <View className=" md:flex-row flex-col w-full h-[calc(100dvh-64px)] z-20 absolute items-center justify-center md:justify-normal gap-8 md:gap-0">
 
 
-            <View className="justify-end items-center pb-6 lg:justify-center lg:pb-0 w-32 flex md:hidden lg:flex lg:w-1/3 h-1/4 md:h-full md:p-12">
-              <img className=" h-auto backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl" src="/icons/MinhaBranca.png" />
+            <View className="justify-end items-center pb-6 lg:justify-center lg:pb-0 w-32 hidden md:hidden lg:flex lg:w-1/3 h-1/4 md:h-full md:p-12">
+               <img className="md:hidden flex h-auto backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl" src="/icons/MinhaBranca.png" /> 
             </View>
 
             <View className="z-20 px-10 w-full lg:w-1/3 md:w-1/2 h-1/4 md:h-full  items-center justify-center">
@@ -467,12 +467,22 @@ export default function App() {
               />
             </View>
 
-            <View className="px-10 sm:px-24 md:px-10 items-center justify-center w-full lg:w-1/3 md:w-1/2 h-2/4 md:h-full">
+            <View className="flex-col px-10 sm:px-24 md:px-10 lg:px-4 xl:px-8 items-center justify-center w-full lg:w-1/3 md:w-1/2 h-2/4 md:h-full">
               <Text
                 style={{ fontSize: dynamicFont }}
                 className="font-bold text-white text-justify md:text-left xl:text-justify leading-relaxed backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl">
-                Olá! Sou Vinicius Marchetti, fotógrafo apaixonado por registrar momentos com criatividade, emoção e identidade. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e projetos comerciais, sempre buscando entregar imagens que marcam.
+                Olá! Sou Vinicius Marchetti, fotógrafo de Chapecó - SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e projetos comerciais. 
+                <br/>
+                Saiba mais soobre mim no botão abaixo!
               </Text>
+              <Link href="/portifolio" asChild>
+                <Pressable className="flex-row my-5 gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                  <img src="/icons/pessoa.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
+                  <Text className="text-center text-white text-md sm:text-lg">
+                    Saiba mais
+                  </Text>
+                </Pressable>
+              </Link>
             </View>
 
           </View>

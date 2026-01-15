@@ -50,7 +50,15 @@ export default function portifolio() {
             </View>
 
             {/*----------------------------------------- HEADER --------------------------------- */}
-            <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center">
+            <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
+
+
+                <Pressable
+                    onPress={() => setOpenMenu(true)}
+                    className="sm:hidden fixed left-4"
+                >
+                    <img src="/icons/3linha.svg" className="w-7 h-7" />
+                </Pressable>
 
                 <Link href="/" asChild>
                     <Pressable className="w-fit justify-center items-center p-1">
@@ -65,15 +73,7 @@ export default function portifolio() {
                     </Pressable>
                 </Link>
 
-                <Pressable
-                    onPress={() => setOpenMenu(true)}
-                    className="sm:hidden ml-auto"
-                >
-                    <img src="/icons/3linha.svg" className="w-7 h-7" />
-                </Pressable>
-
                 <View className="hidden sm:flex sm:flex-row ml-auto gap-7">
-
                     <Link href="/" asChild>
                         <Pressable className={botao}>
                             <Text className={textobotao}>Início</Text>
@@ -82,7 +82,7 @@ export default function portifolio() {
 
                     <Link href="/portifolio" asChild>
                         <Pressable className={botao}>
-                            <Text className={textobotao}>Portfólio</Text>
+                            <Text className={textoselecionado}>Portfólio</Text>
                         </Pressable>
                     </Link>
 
@@ -94,7 +94,7 @@ export default function portifolio() {
 
                     <Link href="/contato" asChild>
                         <Pressable className={botao}>
-                            <Text className={textoselecionado}>Contato</Text>
+                            <Text className={textobotao}>Contato</Text>
                         </Pressable>
                     </Link>
                 </View>
@@ -156,8 +156,14 @@ export default function portifolio() {
             {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
 
             <View className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none">
+                {/* Imagem DESKTOP (>= sm) */}
+                <img
+                    src="/images/3.avif"
+                    className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-60 -z-10"
+                />
 
-                <View className="bg-white mx-6 px-6 sm:px-12 py-8 rounded-lg shadow-white max-w-[1100px] max-h-[85vh] w-auto overflow-auto pointer-events-auto shadow-[0_0_5px_rgba(0,0,0,0.3)]">
+
+                <View className="bg-white mx-6 px-6 sm:px-12 py-8 rounded-lg shadow-black max-w-[1100px] max-h-[85vh] w-auto overflow-auto pointer-events-auto shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                     {/* CABEÇALHO */}
                     <View className="items-center justify-center pt-2 pb-4 w-full">
