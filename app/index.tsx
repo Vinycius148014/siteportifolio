@@ -475,7 +475,7 @@ export default function App() {
                 <br/>
                 Saiba mais soobre mim no botão abaixo!
               </Text>
-              <Link href="/portifolio" asChild>
+              <Link href="/sobre" asChild>
                 <Pressable className="flex-row my-5 gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
                   <img src="/icons/pessoa.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                   <Text className="text-center text-white text-md sm:text-lg">
