@@ -50,7 +50,7 @@ export default function portifolio() {
             </View>
 
             {/*----------------------------------------- HEADER --------------------------------- */}
-            <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
+            <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black z-50" >
 
 
                 <Pressable

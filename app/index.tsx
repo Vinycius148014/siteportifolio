@@ -1,3 +1,4 @@
+import { trackEvent } from "@/src/lib/analytics";
 import { Link } from "expo-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -282,10 +283,12 @@ export default function App() {
                 className="flex-row items-center justify-center w-fit">
 
                 <Link href="/portifolio" asChild>
-                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                    onPress={() => {trackEvent("click_portfolio", { origem: "Ver portfólio primeiro" });}}>
+
                     <img src="/icons/cameraBranca.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                     <Text className="text-center text-white text-md sm:text-lg">
-                      Ver portifolio
+                      Ver portfólio
                     </Text>
                   </Pressable>
                 </Link>
@@ -299,7 +302,8 @@ export default function App() {
                 className="flex-row items-center justify-center w-fit">
 
                 <Link href="/contato" asChild>
-                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                  <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                  onPress={() => {trackEvent("click_contato", { origem: "Entrar em contato primeiro" });}}>
                     <img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                     <Text className="text-center text-white text-md sm:text-lg">
                       Entrar em contato
@@ -326,7 +330,7 @@ export default function App() {
 
           {/* Imagem MOBILE (< sm) */}
           <img
-            src="/images/fundofogos.jpg"
+            src="/images/fundofogos.avif"
             className="block sm:hidden absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
           />
 
@@ -423,7 +427,7 @@ export default function App() {
               <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit mb-10 py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
                 <img src="/icons/cameraBranca.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                 <Text className="text-center text-white text-md sm:text-lg">
-                  Ver portifolio
+                  Ver portfólio
                 </Text>
               </Pressable>
             </Link>
@@ -440,7 +444,11 @@ export default function App() {
             <View className="items-center justify-center w-auto h-screen md:w-full md:h-[calc(100dvh-64px)] lg:w-1/2  relative ">
               <img
                 src="/images/fundo.jpg"
-                className="w-full h-full lg:h-auto object-cover"
+                className="block sm:hidden w-full h-full lg:h-auto object-cover"
+              />
+              <img
+                src="/images/previasobre.jpg"
+                className="hidden sm:block w-full h-full lg:h-auto object-cover"
               />
             </View>
 
@@ -457,7 +465,7 @@ export default function App() {
 
 
             <View className="justify-end items-center pb-6 lg:justify-center lg:pb-0 w-32 hidden md:hidden lg:flex lg:w-1/3 h-1/4 md:h-full md:p-12">
-               <img className="md:hidden flex h-auto backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl" src="/icons/MinhaBranca.png" /> 
+              <img className="md:hidden flex h-auto backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl" src="/icons/MinhaBranca.png" />
             </View>
 
             <View className="z-20 px-10 w-full lg:w-1/3 md:w-1/2 h-1/4 md:h-full  items-center justify-center">
@@ -471,9 +479,9 @@ export default function App() {
               <Text
                 style={{ fontSize: dynamicFont }}
                 className="font-bold text-white text-justify md:text-left xl:text-justify leading-relaxed backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl">
-                Olá! Sou Vinicius Marchetti, fotógrafo de Chapecó - SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e projetos comerciais. 
-                <br/>
-                Saiba mais soobre mim no botão abaixo!
+                Olá! Sou Vinicius Marchetti, fotógrafo de Chapecó - SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa.
+                <br />
+                Saiba mais sobre mim no botão abaixo!
               </Text>
               <Link href="/sobre" asChild>
                 <Pressable className="flex-row my-5 gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">

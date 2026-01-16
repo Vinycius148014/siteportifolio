@@ -4,7 +4,7 @@
     "slug": "site-portifolio",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./public/icons/eu.jpg",
+    "icon": "./public/icons/euicone.png",
     "scheme": "siteportifolio",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,14 +14,14 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./public/icons/eu.jpg"
+        "foregroundImage": "./public/icons/euicone.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./public/icons/eu.jpg",
+      "favicon": "./public/icons/euicone.png",
       "bundler": "metro"
     },
     "plugins": [
@@ -29,7 +29,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./public/icons/eu.jpg",
+          "image": "./public/icons/euicone.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",

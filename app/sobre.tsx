@@ -223,7 +223,7 @@ export default function portifolio() {
 
                         {/* Imagem MOBILE (< sm) */}
                         <img
-                            src="/images/fundofogos.jpg"
+                            src="/images/fundofogos.avif"
                             className="block sm:hidden absolute inset-0 w-full h-full object-cover opacity-30"
                         />
 
