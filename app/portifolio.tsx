@@ -16,7 +16,7 @@ export default function portifolio() {
         { src: "/images/bmwm2.avif", category: "automotiva" },
         { src: "/images/automotiva/9-509.avif", category: "automotiva" },
         { src: "/images/m2vermelha.avif", category: "automotiva" },
-        { src: "/images/2carrofundo.jpg", category: "automotiva" },
+        { src: "/images/2carrofundo.avif", category: "automotiva" },
         { src: "/images/ferrari.avif", category: "automotiva" },
         { src: "/images/jetta.avif", category: "automotiva" },
         { src: "/images/motobmw.avif", category: "motociclismo" },
@@ -175,6 +175,7 @@ export default function portifolio() {
 
 
 
+
     const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
@@ -223,6 +224,34 @@ export default function portifolio() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const selectedImage = selectedIndex !== null ? filtered[selectedIndex]?.src : null;
 
+
+    const handleImgRef = (key: string, index: number) => (el: HTMLImageElement | null) => {
+        if (!el) return;
+
+        // se já marcou como loaded, sai
+        if (loadedMap[key]) return;
+
+        // se já veio do cache e está completa, o onLoad pode não disparar
+        if (el.complete && el.naturalWidth > 0) {
+            const ratio = el.naturalWidth / el.naturalHeight;
+            setRatioMap((prev) => ({ ...prev, [key]: ratio }));
+            setLoadedMap((prev) => ({ ...prev, [key]: true }));
+        }
+    };
+
+
+
+    const [loadedMap, setLoadedMap] = useState<Record<string, boolean>>({});
+
+    useEffect(() => {
+        // reseta skeleton quando muda o filtro / lista
+        setLoadedMap({});
+    }, [activeFilter]);
+
+    const [ratioMap, setRatioMap] = useState<Record<string, number>>({});
+
+
+
     // bloquear scroll da página quando lightbox aberto
     useEffect(() => {
         if (selectedImage) {
@@ -262,7 +291,7 @@ export default function portifolio() {
             {/* ASSINATURA */}
             <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
                 <Text className={"text-white text-xs"}>
-                    © 2025 Vinicius Marchetti
+                    © 2026 Vinicius Marchetti
                 </Text>
             </View>
 
@@ -413,11 +442,11 @@ export default function portifolio() {
             {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
             <View className="mt-16">
                 <ScrollView
-                    className="bg-white w-full"
-                    style={{ height: 'calc(100vh - 64px)' } as any}
+                    className="bg-black w-full"
+                    style={{ height: 'calc(100dvh - 64px)' } as any}
                     scrollEnabled={!selectedImage}>
 
-                    <Text className="text-5xl font-thin text-center m-10">Portifólio</Text>
+                    <Text className="text-5xl font-thin text-center m-10 text-white">Portfólio</Text>
 
                     {/* ------------------ FILTROS (abas) ------------------ */}
                     <div className="max-w-[1200px] mx-auto px-6 mb-2 flex flex-col gap-3">
@@ -435,8 +464,8 @@ export default function portifolio() {
                                             key={f}
                                             onClick={() => setActiveFilter(f)}
                                             className={`w-24 justify-center items-center transition-all duration-150 ${active
-                                                ? "text-center text-black text-lg font-thin underline decoration-2 underline-offset-4"
-                                                : "text-center text-black text-lg font-thin hover:underline hover:decoration-2 hover:underline-offset-4"
+                                                ? "text-center text-white text-lg font-thin underline decoration-2 underline-offset-4"
+                                                : "text-center text-white text-lg font-thin hover:underline hover:decoration-2 hover:underline-offset-4"
                                                 }`}>
                                             <span className={`transition-all duration-150 ${active
                                                 ? "w-24 justify-center items-center"
@@ -450,27 +479,73 @@ export default function portifolio() {
                             </div>
 
                         </div>
-                        <Text className="text-sm text-gray-600 items-center text-center justify-center md:items-start md:text-start">
+                        <Text className="text-sm text-white items-center text-center justify-center md:items-start md:text-start mb-6">
                             Mostrando <strong>{filtered.length}</strong> foto(s) — categoria: <strong>{activeFilter === "all" ? "Todos" : activeFilter}</strong>
                         </Text>
 
                     </div>
-                    <View className="flex-row items-center justify-center mb-1 mt-6 md:mr-10 md:ml-auto">
-                        <Text className="text-sm text-center text-black sm:text-md">Clique na foto para vê-la em tela cheia.</Text>
-                        <img src="/icons/cliquebranco.svg" className="sm:w-6 sm:h-6 w-4 h-4 ml-2" />
+                    <View className="flex-row sm:hidden items-center justify-center mb-1">
+                        <Text className="text-sm sm:text-md text-center text-white">Clique na foto para vê-la em tela cheia.</Text>
+                        <img src="/icons/cliquetelabranco.svg" className="sm:w-6 sm:h-6 w-4 h-4 ml-2" />
                     </View>
 
                     {/* ------------------ GALERIA (usa array filtrado) ------------------ */}
-                    <div className="columns-4 gap-2 md:gap-6 md:px-10 px-5">
-                        {filtered.map((image, index) => (
-                            <img
-                                key={index}
-                                src={image.src}
-                                className="md:mb-6 mb-2 w-full rounded-sm object-cover cursor-pointer"
-                                onClick={() => setSelectedIndex(index)}
-                            />
-                        ))}
-                    </div>
+                    <div key={activeFilter} className="columns-4 gap-2 md:gap-6 md:px-10 px-5">
+                        {filtered.map((image, index) => {
+                            const key = image.src; // chave única
+                            const loaded = loadedMap[key] === true;
+
+                            return (
+                                <div
+                                    key={key}
+                                    className="group relative md:mb-6 mb-2 inline-block w-full align-top break-inside-avoid overflow-hidden rounded-sm bg-black/10"
+                                    style={{ aspectRatio: ratioMap[key] ?? 4 / 5 }}>
+
+                                    {/* SKELETON */}
+                                    {!loaded && (
+                                        <div className="absolute inset-0 z-10 overflow-hidden rounded-md bg-[#1c1c1c]">
+                                            <div className="absolute inset-0 bg-gray-400 rounded-sm" />
+                                            <div className="absolute -inset-y-24 -left-[60%] w-[60%] h-[300%] animate-skeletonNubank bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                                        </div>
+                                    )}
+
+                                    {/* IMAGEM */}
+                                    <img
+                                        ref={handleImgRef(key, index)}
+                                        src={image.src}
+                                        className={`absolute inset-0 w-full h-full object-contain cursor-pointer hover:opacity-50 transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"
+                                            }`}
+                                        onClick={() => setSelectedIndex(index)}
+                                        onLoad={(e) => {
+                                            const img = e.currentTarget as HTMLImageElement;
+                                            const ratio = img.naturalWidth / img.naturalHeight;
+
+                                            setRatioMap((prev) => ({ ...prev, [key]: ratio }));
+                                            setLoadedMap((prev) => ({ ...prev, [key]: true }));
+                                        }}
+                                        onError={() => setLoadedMap((prev) => ({ ...prev, [key]: true }))}
+                                        loading="lazy"
+                                    />
+
+                                    {/* OVERLAY HOVER */}
+                                    <div
+                                        className="absolute inset-0 z-20 hidden sm:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+                                    >
+                                        <div className="flex items-center gap-1 flex-col-reverse xl:flex-row p-4">
+                                            <span className="text-xs md:text-sm text-center font-medium text-white ">
+                                                Ver em tela cheia.
+                                            </span>
+                                            <img
+                                                src="/icons/cliquetelabranco.svg"
+                                                className="w-5 h-5"
+                                                alt=""
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            );
+                        })} </div>
                 </ScrollView>
 
                 {/* ------------------ LIGHTBOX / MODAL ------------------ */}

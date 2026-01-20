@@ -78,7 +78,7 @@ export default function portifolio() {
             {/* ASSINATURA */}
             <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
                 <Text className={"text-white text-xs"}>
-                    © 2025 Vinicius Marchetti
+                    © 2026 Vinicius Marchetti
                 </Text>
             </View>
 

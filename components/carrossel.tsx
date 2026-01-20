@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Pressable, View } from "react-native";
+import SkeletonImage from "./skeleton";
 
 type Props = {
     images: string[];
@@ -38,15 +39,20 @@ export default function AutoCarousel({
         <div className="w-full h-full flex-col justify-center items-center">
             <div className="relative w-full h-full flex justify-center items-center">
                 <View className="w-fit h-fit shadow-black rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-                    <motion.img
+                    <motion.div
                         key={index}
-                        src={images[index]}
-                        className="w-full h-full sm:max-h-full max-h-[250px] sm:object-contain object-cover"
+                        className="w-full h-full"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
-                    />
+                    >
+                        <SkeletonImage
+                            src={images[index]}
+                            className="w-full h-full rounded-xl shadow-xl"
+                        />
+                    </motion.div>
+
                 </View>
             </div>
             <div className="sm:flex items-center hidden justify-center">

@@ -45,7 +45,7 @@ export default function portifolio() {
             {/*----------------------------------------- ASSINATURA --------------------------------- */}
             <View className="fixed bottom-2 left-2 z-0">
                 <Text className={"text-white text-xs"}>
-                    © 2025 Vinicius Marchetti
+                    © 2026 Vinicius Marchetti
                 </Text>
             </View>
 

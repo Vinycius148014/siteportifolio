@@ -78,7 +78,7 @@ export default function App() {
       {/* ASSINATURA */}
       <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
         <Text className={"text-white text-xs"}>
-          © 2025 Vinicius Marchetti
+          © 2026 Vinicius Marchetti
         </Text>
       </View>
 
@@ -245,34 +245,35 @@ export default function App() {
             loop
             playsInline
             preload="auto"
-            className="
-      absolute inset-0
-      w-full h-full
-      object-contain
-      pointer-events-none
-      -z-10
-      bg-black
-      opacity-30
-    "
+            className="absolute inset-0 w-full h-full object-contain pointer-events-none -z-10 bg-black opacity-30"
           />
 
           <View className="flex-row w-full h-auto xl:mt-12">
 
-            <View className="w-1/3 h-auto aspect-square" />
+            <View className="w-1/3 h-auto aspect-square xl:h-[430px]"/>
 
-            <View className="w-1/3 items-center justify-center gap-8 h-auto">
+            <View className="w-1/3 items-center justify-center gap-8 h-auto xl:max-h-96">
 
               <img src="/icons/eu.jpg" className="w-auto aspect-square rounded-lg max-h-72 min-w-48 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]" />
-              <img src="/icons/MinhaBranca.png" className="z-20 max-w-48 h-auto hidden sm:flex" />
+              <img src="/icons/MinhaBranca.png" className="z-20 max-w-48 h-auto hidden sm:flex"/>
 
             </View>
 
-            <View className="w-1/3 h-auto" />
+            <View className="w-1/3 h-auto xl:max-h-96"/>
 
           </View>
-          <View className="items-center justify-center w-full h-1/3 gap-12 xl:justify-start mt-10 sm:mt-4 xl:mt-9">
+          <View className="items-center justify-center w-full h-1/3 gap-9 xl:justify-start mt-10 sm:mt-4 xl:mt-4">
 
-            <Text className="text-center text-lg sm:text-2xl text-white mx-12 sm:mx-24">Fotógrafo em Chapecó–SC, especializado em fotografia esportiva, automotiva e comercial.</Text>
+            <View className="items-center justify-center">
+              <Text className="text-center text-lg sm:text-2xl text-white mx-12 sm:mx-24">
+                Fotógrafo em Chapecó e região.
+              </Text>
+
+              <Text className="text-center text-sm sm:text-lg text-white/90 mx-12 sm:mx-24">
+                Atendo diversos tipos de eventos, incluindo esportivos, automotivos e motociclísticos, além de ensaios em geral.
+              </Text>
+            </View>
+
             <View className="flex-row items-center justify-center w-full h-fit gap-5 sm:gap-10">
 
 
@@ -283,6 +284,7 @@ export default function App() {
 
                 <Link href="/portifolio" asChild>
                   <Pressable className="flex-row gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+
                     <img src="/icons/cameraBranca.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                     <Text className="text-center text-white text-md sm:text-lg">
                       Ver portifolio
@@ -471,9 +473,9 @@ export default function App() {
               <Text
                 style={{ fontSize: dynamicFont }}
                 className="font-bold text-white text-justify md:text-left xl:text-justify leading-relaxed backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl">
-                Olá! Sou Vinicius Marchetti, fotógrafo de Chapecó - SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e projetos comerciais. 
-                <br/>
-                Saiba mais soobre mim no botão abaixo!
+                Olá! Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa.
+                <br />
+                Saiba mais sobre mim no botão abaixo!
               </Text>
               <Link href="/sobre" asChild>
                 <Pressable className="flex-row my-5 gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
