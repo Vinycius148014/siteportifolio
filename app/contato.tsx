@@ -43,14 +43,14 @@ export default function portifolio() {
         <View className="flex-1 bg-black">
 
             {/*----------------------------------------- ASSINATURA --------------------------------- */}
-            <View className="fixed bottom-2 left-2 z-0">
+            <View className="fixed bottom-2 left-2 z-50">
                 <Text className={"text-white text-xs"}>
-                    © 2026 Vinicius Marchetti
+                    Desenvolvido por Vinicius Marchetti.
                 </Text>
             </View>
 
             {/*----------------------------------------- HEADER --------------------------------- */}
-            <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
+            <View className="p-4 z-50 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
 
 
                 <Pressable
@@ -82,7 +82,7 @@ export default function portifolio() {
 
                     <Link href="/portifolio" asChild>
                         <Pressable className={botao}>
-                            <Text className={textoselecionado}>Portfólio</Text>
+                            <Text className={textobotao}>Portfólio</Text>
                         </Pressable>
                     </Link>
 
@@ -94,7 +94,7 @@ export default function portifolio() {
 
                     <Link href="/contato" asChild>
                         <Pressable className={botao}>
-                            <Text className={textobotao}>Contato</Text>
+                            <Text className={textoselecionado}>Contato</Text>
                         </Pressable>
                     </Link>
                 </View>
@@ -106,7 +106,7 @@ export default function portifolio() {
                 <>
                     {/* BACKDROP — clica e fecha */}
                     <Pressable
-                        className="fixed inset-0 bg-black/60 z-40"
+                        className="fixed inset-0 bg-black/60 z-50"
                         onPress={() => setOpenMenu(false)}
                     />
 
@@ -220,7 +220,7 @@ export default function portifolio() {
                             className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
-                                src="/icons/email.svg"
+                                src="/icons/email1.svg"
                                 className="w-auto h-8 sm:h-12 aspect-square bg-transparent"
                             />
 

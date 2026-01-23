@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import { Linking, Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
 import AutoCarousel from "../components/carrossel";
 import Depoimentos from "../components/depoimentos";
 import { botao, textobotao, textoselecionado, viewcarrossel } from "../components/estilos";
@@ -10,6 +10,13 @@ import "../global.css";
 
 export default function App() {
 
+  const email = "marchettivinim@email.com";
+  const subject = "Contato pelo portfólio";
+  const body = "Olá Vinicius, vi seu portfólio!";
+
+  const emailUrl = `mailto:${email}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
 
 
   const [showBalloon, setShowBalloon] = useState(false);
@@ -55,7 +62,7 @@ export default function App() {
     dynamicFont = 15;         // mobile MUITO pequeno
   }
   else if (width < 768) {
-    dynamicFont = width * 0.030;   // mobile normal com escala melhor
+    dynamicFont = 19;   // mobile normal com escala melhor
   }
   else if (width < 1024) {
     dynamicFont = 20;         // APENAS md → fixo
@@ -76,15 +83,15 @@ export default function App() {
     <View className="flex-1 bg-white">
 
       {/* ASSINATURA */}
-      <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
+      <View className={`absolute bottom-2 sm:bottom-3 z-30 left-2 sm:left-3`}>
         <Text className={"text-white text-xs"}>
-          © 2026 Vinicius Marchetti
+          Desenvolvido por Vinicius Marchetti.
         </Text>
       </View>
 
 
       {/* WHATSAPP */}
-      <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2 sm:gap-4`}>
+      <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-30 flex flex-col items-end gap-2 sm:gap-4`}>
 
         {/* BALÃO */}
         {showBalloon && (
@@ -93,7 +100,7 @@ export default function App() {
             {/* BOTÃO FECHAR */}
             <button
               onClick={() => setShowBalloon(false)}
-              className="absolute sm:-top-3 sm:-left-3 -top-4 -left-4 w-7 h-7 z-50 bg-black text-white rounded-full text-xs flex items-center justify-center hover:bg-gray-800"
+              className="absolute sm:-top-3 sm:-left-3 -top-4 -left-4 w-7 h-7 z-30 bg-black text-white rounded-full text-xs flex items-center justify-center hover:bg-gray-800"
             >
               X
             </button>
@@ -179,7 +186,7 @@ export default function App() {
         <>
           {/* BACKDROP — clica e fecha */}
           <Pressable
-            className="fixed inset-0 bg-black/60 z-40"
+            className="fixed inset-0 bg-black/60 z-50"
             onPress={() => setOpenMenu(false)}
           />
 
@@ -250,26 +257,26 @@ export default function App() {
 
           <View className="flex-row w-full h-auto xl:mt-12">
 
-            <View className="w-1/3 h-auto aspect-square xl:h-[430px]"/>
+            <View className="w-1/3 h-auto aspect-square xl:h-[430px]" />
 
             <View className="w-1/3 items-center justify-center gap-8 h-auto xl:max-h-96">
 
               <img src="/icons/eu.jpg" className="w-auto aspect-square rounded-lg max-h-72 min-w-48 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]" />
-              <img src="/icons/MinhaBranca.png" className="z-20 max-w-48 h-auto hidden sm:flex"/>
+              <img src="/icons/MinhaBranca.png" className="z-20 max-w-48 h-auto hidden sm:flex" />
 
             </View>
 
-            <View className="w-1/3 h-auto xl:max-h-96"/>
+            <View className="w-1/3 h-auto xl:max-h-96" />
 
           </View>
           <View className="items-center justify-center w-full h-1/3 gap-9 xl:justify-start mt-10 sm:mt-4 xl:mt-4">
 
             <View className="items-center justify-center">
-              <Text className="text-center text-lg sm:text-2xl text-white mx-12 sm:mx-24">
+              <Text className="text-center text-xl sm:text-2xl text-white mx-12 sm:mx-24">
                 Fotógrafo em Chapecó e região.
               </Text>
 
-              <Text className="text-center text-sm sm:text-lg text-white/90 mx-12 sm:mx-24">
+              <Text className="text-center text-sm mt-2 sm:text-lg text-white/90 mx-12 sm:mx-24">
                 Atendo diversos tipos de eventos, incluindo esportivos, automotivos e motociclísticos, além de ensaios em geral.
               </Text>
             </View>
@@ -328,7 +335,7 @@ export default function App() {
 
           {/* Imagem MOBILE (< sm) */}
           <img
-            src="/images/fundofogos.jpg"
+            src="/images/fundofogos.avif"
             className="block sm:hidden absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
           />
 
@@ -455,11 +462,11 @@ export default function App() {
 
           {/*---------------------------------------- SOBRE MIM: FRENTE --------------------------------- */}
 
-          <View className=" md:flex-row flex-col w-full h-[calc(100dvh-64px)] z-20 absolute items-center justify-center md:justify-normal gap-8 md:gap-0">
+          <View className=" md:flex-row flex-col w-full h-[calc(100dvh-64px)] z-20 absolute items-center justify-center md:justify-normal backdrop-blur-sm md:backdrop-blur-none bg-black/30 md:bg-transparent">
 
 
-            <View className="justify-end items-center pb-6 lg:justify-center lg:pb-0 w-32 hidden md:hidden lg:flex lg:w-1/3 h-1/4 md:h-full md:p-12">
-               <img className="md:hidden flex h-auto backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl" src="/icons/MinhaBranca.png" /> 
+            <View className="justify-center items-center flex md:hidden lg:flex lg:w-1/3 h-1/5">
+              <Text className="flex md:hidden text-6xl font-thin text-center text-white whitespace-nowrap">Sobre mim:</Text>
             </View>
 
             <View className="z-20 px-10 w-full lg:w-1/3 md:w-1/2 h-1/4 md:h-full  items-center justify-center">
@@ -469,16 +476,16 @@ export default function App() {
               />
             </View>
 
-            <View className="flex-col px-10 sm:px-24 md:px-10 lg:px-4 xl:px-8 items-center justify-center w-full lg:w-1/3 md:w-1/2 h-2/4 md:h-full">
+            <View className="flex-col px-10 sm:px-24 md:px-10 lg:px-4 xl:px-8 items-center justify-center w-full lg:w-1/3 md:w-1/2 h-2/4 md:h-full ">
+              <Text className="md:flex hidden text-5xl font-thin text-center text-white md:mb-6 lg:mb-4 mb-2 whitespace-nowrap">Sobre mim:</Text>
               <Text
-                style={{ fontSize: dynamicFont }}
-                className="font-bold text-white text-justify md:text-left xl:text-justify leading-relaxed backdrop-blur-sm p-4 shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-black/30 rounded-2xl">
+                className="font-bold text-base text-white text-justify md:text-left xl:text-justify leading-relaxed p-4 backdrop-blur-none shadow-none bg-transparent rounded-none md:backdrop-blur-sm md:shadow-black md:shadow-[0_0_10px_rgba(0,0,0,0.3)] md:bg-black/30 md:rounded-2xl">
                 Olá! Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa.
                 <br />
                 Saiba mais sobre mim no botão abaixo!
               </Text>
               <Link href="/sobre" asChild>
-                <Pressable className="flex-row my-5 gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                <Pressable className="flex-row  gap-2 backdrop-blur-sm w-fit py-3 px-4 sm:py-4 sm:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
                   <img src="/icons/pessoa.svg" className="sm:w-6 sm:h-6 w-4 h-4" />
                   <Text className="text-center text-white text-md sm:text-lg">
                     Saiba mais
@@ -489,6 +496,172 @@ export default function App() {
 
           </View>
         </View>
+
+
+        {/*---------------------------------------- RODAPÉ ----------------------------------------------------------------------- */}
+
+        <View className="w-full items-center justify-center flex-col md:flex-row pt-14 pb-16 sm:p-16 bg-black lg:bg-slate-950">
+
+          <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
+            <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
+          </View>
+
+
+          <View className="w-full h-1/3 md:h-full md:w-2/4 items-center justify-center gap-1 m-2 ">
+
+            <Text className="text-white text-center text-md">
+              Vinicius Marchetti Fotógrafo
+            </Text>
+
+            <View className="w-fit h-fit flex-row ">
+
+              <Text className="text-white text-center text-md">Links: </Text>
+
+              <Link href="/" asChild>
+                <Pressable className=" items-center justify-center w-fit h-fit">
+                  <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                    Início
+                  </Text>
+                </Pressable>
+              </Link>
+
+              <Text className="text-white text-center text-md"> | <br /></Text>
+
+              <Link href="/portifolio" asChild>
+                <Pressable className="items-center justify-center w-fit h-fit">
+                  <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                    Portfólio
+                  </Text>
+                </Pressable>
+              </Link>
+
+              <Text className="text-white text-center text-md"> | <br /></Text>
+
+              <Link href="/sobre" asChild>
+                <Pressable className="items-center justify-center w-fit h-fit">
+                  <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                    Sobre
+                  </Text>
+                </Pressable>
+              </Link>
+
+              <Text className="text-white text-center text-md"> | <br /></Text>
+
+              <Link href="/contato" asChild>
+                <Pressable className=" items-center justify-center w-fit h-fit">
+                  <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                    Contato
+                  </Text>
+                </Pressable>
+              </Link>
+
+            </View>
+
+
+
+
+            <View className="w-fit h-fit flex-row ">
+
+              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(url)}>
+                <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                  WhatsApp
+                </Text>
+              </Pressable>
+
+              <Text className="text-white text-center text-md"> • <br /></Text>
+
+              <Pressable className=" items-center justify-center w-fit h-fit"
+                onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                  Instagram
+                </Text>
+              </Pressable>
+
+              <Text className="text-white text-center text-md"> • <br /></Text>
+
+              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(emailUrl)}>
+                <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                  Email
+                </Text>
+              </Pressable>
+
+              <Text className="text-white text-center text-md"> • <br /></Text>
+
+              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL("https://banlek.com/viniciusmarchetti")}>
+                <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                  Banlek
+                </Text>
+              </Pressable>
+
+            </View>
+
+
+            <Text className="text-white text-center text-md">
+              © 2026 — Todos os direitos reservados.
+            </Text>
+          </View>
+
+
+          <View className="w-full h-1/3 md:h-full md:w-1/4 items-center justify-center gap-6 lg:gap-6">
+
+            <View className="flex-row items-center justify-center">
+
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 50 }}
+                className="items-center justify-center w-fit">
+                <Pressable onPress={() => Linking.openURL(url)}>
+                  <img src="/icons/wppbranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                </Pressable>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 50 }}
+                className="items-center justify-center w-fit">
+                <Pressable onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                  <img src="/icons/instabranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                </Pressable>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 50 }}
+                className="items-center justify-center w-fit">
+                <Pressable onPress={() => Linking.openURL(emailUrl)}>
+                  <img src="/icons/email1.svg" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                </Pressable>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 50 }}
+                className="items-center justify-center w-fit">
+                <Pressable onPress={() => window.open("https://banlek.com/viniciusmarchetti", "_blank")}>
+                  <img src="/icons/banlek.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                </Pressable>
+              </motion.div>
+
+            </View>
+
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 120 }}
+              className="flex-row items-center justify-center w-fit">
+
+              <Link href="/contato" asChild>
+                <Pressable className="flex-row  backdrop-blur-sm w-fit   gap-2 py-1 px-12 md:py-2 md:px-14 lg:py-2 lg:px-16    items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                  {/*<img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />*/}
+                  <Text className="text-center text-white text-lg md:text-md lg:text-xl">
+                    Contato
+                  </Text>
+                </Pressable>
+              </Link>
+            </motion.div>
+          </View>
+
+        </View>
+
 
       </ScrollView >
     </View >

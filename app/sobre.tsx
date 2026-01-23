@@ -65,7 +65,7 @@ export default function portifolio() {
         dynamicFont = 16; // telas grandes
     }
 
-    const isMobile = width < 400;
+    const isMobile = width < 500;
 
 
 
@@ -78,7 +78,7 @@ export default function portifolio() {
             {/* ASSINATURA */}
             <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
                 <Text className={"text-white text-xs"}>
-                    © 2026 Vinicius Marchetti
+                    Desenvolvido por Vinicius Marchetti.
                 </Text>
             </View>
 
@@ -102,7 +102,7 @@ export default function portifolio() {
             </div>
 
             {/* HEADER FIXO */}
-            <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center justify-center">
+            <View className="fixed top-0 left-0 right-0 z-50 w-full bg-black p-4 flex-row items-center justify-center h-16">
                 <Link href="/" asChild>
                     <Pressable className="w-fit justify-center items-center p-1">
                         <motion.img
@@ -223,7 +223,7 @@ export default function portifolio() {
 
                         {/* Imagem MOBILE (< sm) */}
                         <img
-                            src="/images/fundofogos.jpg"
+                            src="/images/fundofogos.avif"
                             className="block sm:hidden absolute inset-0 w-full h-full object-cover opacity-30"
                         />
 
@@ -237,7 +237,7 @@ export default function portifolio() {
                             {/* ESQUERDA */}
                             <View className="w-auto md:h-full h-1/3 md:w-2/5 lg:w-1/3 flex-row items-center justify-center xl:justify-end xl:pr-8 lg:pr-0">
 
-                                <View className="flex-col items-center h-full md:h-auto justify-center md:w-4/5 gap-6 p-8">
+                                <View className="flex-col max-h-[400px] items-center h-full md:h-auto justify-center md:w-4/5 gap-6 p-8">
                                     
                                     <img
                                         src="/images/selfie.jpg"

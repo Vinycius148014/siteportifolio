@@ -1,7 +1,7 @@
 import { Link, useLocalSearchParams } from "expo-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Linking, Pressable, ScrollView, Text, View } from "react-native";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -156,6 +156,19 @@ export default function portifolio() {
     ];
 
 
+    const phone = "5549984006881"; // DDI + DDD + número (sem espaços)
+    const message = "Olá, vim pelo seu portfólio!";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    const email = "marchettivinim@email.com";
+    const subject = "Contato pelo portfólio";
+    const body = "Olá Vinicius, vi seu portfólio!";
+
+    const emailUrl = `mailto:${email}?subject=${encodeURIComponent(
+        subject
+    )}&body=${encodeURIComponent(body)}`;
+
+
     const [showBalloon, setShowBalloon] = useState(false);
 
     useEffect(() => {
@@ -291,7 +304,7 @@ export default function portifolio() {
             {/* ASSINATURA */}
             <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
                 <Text className={"text-white text-xs"}>
-                    © 2026 Vinicius Marchetti
+                    Desenvolvido por Vinicius Marchetti.
                 </Text>
             </View>
 
@@ -546,6 +559,167 @@ export default function portifolio() {
 
                             );
                         })} </div>
+                    <View className="w-full items-center justify-center flex-col md:flex-row p-14 bg-black lg:bg-slate-950">
+
+                        <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
+                            <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
+                        </View>
+
+
+                        <View className="w-full h-1/3 md:h-full md:w-2/4 items-center justify-center gap-1 m-2 ">
+
+                            <Text className="text-white text-center text-md">
+                                Vinicius Marchetti Fotógrafo
+                            </Text>
+
+                            <View className="w-fit h-fit flex-row ">
+
+                                <Text className="text-white text-center text-md">Links: </Text>
+
+                                <Link href="/" asChild>
+                                    <Pressable className=" items-center justify-center w-fit h-fit">
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Início
+                                        </Text>
+                                    </Pressable>
+                                </Link>
+
+                                <Text className="text-white text-center text-md"> | <br /></Text>
+
+                                <Link href="/portifolio" asChild>
+                                    <Pressable className="items-center justify-center w-fit h-fit">
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Portfólio
+                                        </Text>
+                                    </Pressable>
+                                </Link>
+
+                                <Text className="text-white text-center text-md"> | <br /></Text>
+
+                                <Link href="/sobre" asChild>
+                                    <Pressable className="items-center justify-center w-fit h-fit">
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Sobre
+                                        </Text>
+                                    </Pressable>
+                                </Link>
+
+                                <Text className="text-white text-center text-md"> | <br /></Text>
+
+                                <Link href="/contato" asChild>
+                                    <Pressable className=" items-center justify-center w-fit h-fit">
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Contato
+                                        </Text>
+                                    </Pressable>
+                                </Link>
+
+                            </View>
+
+
+
+
+                            <View className="w-fit h-fit flex-row ">
+
+                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(url)}>
+                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                        WhatsApp
+                                    </Text>
+                                </Pressable>
+
+                                <Text className="text-white text-center text-md"> • <br /></Text>
+
+                                <Pressable className=" items-center justify-center w-fit h-fit"
+                                    onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                        Instagram
+                                    </Text>
+                                </Pressable>
+
+                                <Text className="text-white text-center text-md"> • <br /></Text>
+
+                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(emailUrl)}>
+                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                        Email
+                                    </Text>
+                                </Pressable>
+
+                                <Text className="text-white text-center text-md"> • <br /></Text>
+
+                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL("https://banlek.com/viniciusmarchetti")}>
+                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                        Banlek
+                                    </Text>
+                                </Pressable>
+
+                            </View>
+
+
+                            <Text className="text-white text-center text-md">
+                                © 2026 — Todos os direitos reservados.
+                            </Text>
+                        </View>
+
+
+                        <View className="w-full h-1/3 md:h-full md:w-1/4 items-center justify-center gap-4 lg:gap-6">
+
+                            <View className="flex-row items-center justify-center">
+
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 50 }}
+                                    className="items-center justify-center w-fit">
+                                    <Pressable onPress={() => Linking.openURL(url)}>
+                                        <img src="/icons/wppbranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                    </Pressable>
+                                </motion.div>
+
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 50 }}
+                                    className="items-center justify-center w-fit">
+                                    <Pressable onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                                        <img src="/icons/instabranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                    </Pressable>
+                                </motion.div>
+
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 50 }}
+                                    className="items-center justify-center w-fit">
+                                    <Pressable onPress={() => Linking.openURL(emailUrl)}>
+                                        <img src="/icons/email1.svg" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                    </Pressable>
+                                </motion.div>
+
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 50 }}
+                                    className="items-center justify-center w-fit">
+                                    <Pressable onPress={() => window.open("https://banlek.com/viniciusmarchetti", "_blank")}>
+                                        <img src="/icons/banlek.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                    </Pressable>
+                                </motion.div>
+
+                            </View>
+
+                            <motion.div
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 120 }}
+                                className="flex-row items-center justify-center w-fit">
+
+                                <Link href="/contato" asChild>
+                                    <Pressable className="flex-row  backdrop-blur-sm w-fit   gap-2 py-1 px-12 md:py-2 md:px-14 lg:py-2 lg:px-16    items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                                        {/*<img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />*/}
+                                        <Text className="text-center text-white text-lg md:text-md lg:text-xl">
+                                            Contato
+                                        </Text>
+                                    </Pressable>
+                                </Link>
+                            </motion.div>
+                        </View>
+
+                    </View>
                 </ScrollView>
 
                 {/* ------------------ LIGHTBOX / MODAL ------------------ */}
@@ -612,6 +786,7 @@ export default function portifolio() {
                         </motion.div>
                     )}
                 </AnimatePresence>
+
             </View>
         </View>
     );
