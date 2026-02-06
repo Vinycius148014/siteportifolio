@@ -49,26 +49,22 @@ export default function portifolio() {
     if (width < 400) {
         dynamicFont = 12;         // mobile MUITO pequeno
     }
-    else if (width < 538) {
-        dynamicFont = width * 0.022;   // mobile normal com escala melhor
+    else if (width < 638) {
+        dynamicFont = 20;   // mobile normal com escala melhor
     }
-    else if (width < 668) {
+    else if (width < 638) {
         dynamicFont = width * 0.020;   // mobile normal com escala melhor
     }
-    else if (width < 748) {
-        dynamicFont = 13;   // mobile normal com escala melhor
-    }
     else if (width < 1024) {
-        dynamicFont = width * 0.014;         // APENAS md → fixo
+        dynamicFont = 20;   // mobile normal com escala melhor
     }
     else {
         dynamicFont = 16; // telas grandes
     }
 
     const isMobile = width < 500;
-
-
-
+    const isSm = width < 640;
+    const isStacked = width < 1024;
 
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -206,13 +202,15 @@ export default function portifolio() {
 
             {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
             <ScrollView
-                scrollEnabled={isMobile}
+                scrollEnabled={isStacked}
                 className="flex-1 bg-black"
-                contentContainerStyle={!isMobile ? ({ flexGrow: 1 } as any) : undefined}>
+                contentContainerStyle={!isStacked ? ({ flexGrow: 1 } as any) : undefined}>
 
-                <View className="relative bg-black pt-[64px] w-full overflow-hidden">
+                <View className={`relative bg-black pt-[64px] w-full ${isStacked ? "" : "overflow-hidden"}`}>
                     {/* FUNDO */}
-                    <View className="relative sm:min-h-[calc(100dvh-64px)] min-h-[calc(170dvh-64px)] w-full overflow-hidden">
+                    <View
+                        className={`relative w-full ${isStacked ? "min-h-[calc(100dvh-64px)]" : "sm:min-h-[calc(100dvh-64px)] min-h-[calc(170dvh-64px)]"} ${isStacked ? "" : "overflow-hidden"}`}
+                    >
 
 
                         {/* Imagem DESKTOP (>= sm) */}
@@ -232,28 +230,51 @@ export default function portifolio() {
                         {/* FRENTEEEE */}
 
                         {/* FRENTE: ocupa todo o espaço do container pai */}
-                        <View className="md:flex-row flex h-full z-20 absolute inset-0 items-center justify-center w-full">
+                        <View
+                            className={`${isStacked
+                                ? `relative z-20 w-full min-h-[calc(100dvh-64px)] flex flex-col items-center justify-center gap-8 py-8 ${isSm ? "px-6" : "px-10"}`
+                                : "md:flex-row flex h-full z-20 absolute inset-0 items-center justify-center w-full"
+                                }`}
+                        >
 
                             {/* ESQUERDA */}
-                            <View className="w-auto md:h-full h-1/3 md:w-2/5 lg:w-1/3 flex-row items-center justify-center xl:justify-end xl:pr-8 lg:pr-0">
+                            <View
+                                className={`${isStacked
+                                    ? "w-full flex items-center justify-center"
+                                    : "w-auto md:h-full md:w-2/5 lg:w-1/3 flex-row items-center justify-center xl:justify-end xl:pr-8 lg:pr-0"
+                                    }`}
+                            >
 
-                                <View className="flex-col max-h-[400px] items-center h-full md:h-auto justify-center md:w-4/5 gap-6 p-8">
+                                <View
+                                    className={`${isStacked
+                                        ? "flex-col items-center gap-6 w-full max-w-[320px]"
+                                        : "flex-col max-h-[400px] items-center h-full md:h-auto justify-center md:w-4/5 gap-6 p-8"
+                                        }`}
+                                >
                                     
                                     <img
                                         src="/images/selfie.jpg"
-                                        className="md:h-auto md:w-full h-full w-auto aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                                        className={`${isStacked
+                                            ? "w-full max-w-[280px] h-auto aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                                            : "md:h-auto md:w-full h-full w-auto aspect-square rounded-xl shadow-black shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                                            }`}
                                         alt="eu"
                                     />
 
-                                    <img src="/icons/MinhaBranca.png" className="h-12 w-auto md:h-auto md:w-full px-12 hidden md:flex" alt="logo" />
+                                    
                                 </View>
 
                             </View>
 
                             {/* DIREITA */}
-                            <View className="w-auto  pt-0 md:pt-0 px-8 md:px-0 md:h-full h-2/3 md:w-3/5 lg:w-2/3 flex items-center md:justify-center justify-start xl:pr-0 md:pr-10">
-                                <View className="max-w-3xl items-center justify-center">
-                                    <Text className="text-5xl font-thin text-center text-white mb-8">Sobre mim:</Text>
+                            <View
+                                className={`${isStacked
+                                    ? "w-full flex items-center justify-center"
+                                    : "w-auto pt-0 md:pt-0 px-24 md:px-0 md:h-full md:w-3/5 lg:w-2/3 flex items-center md:justify-center justify-start xl:pr-0 md:pr-10"
+                                    }`}
+                            >
+                                <View className={`${isStacked ? "w-full max-w-3xl" : "max-w-3xl items-center lg:mb-0 mb-7 justify-center h-screen-safe-offset-10"}`}>
+                                    <Text className={`${isStacked ? "text-4xl font-thin text-center text-white mb-6" : "text-5xl font-thin text-center text-white mb-8"}`}>Sobre mim:</Text>
                                     <Text
                                         style={{ fontSize: dynamicFont }}
                                         className="font-bold text-white text-justify leading-relaxed">
@@ -268,9 +289,9 @@ export default function portifolio() {
                                         Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto. Entre em contato comigo no botão abaixo!
                                     </Text>
                                     <Link href="/contato" asChild>
-                                        <Pressable className="flex-row gap-2 mt-7 backdrop-blur-sm w-fit py-3 px-4 md:py-4 md:px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-                                            <img src="/icons/telefoneBranco.svg" className="md:w-6 md:h-6 w-4 h-4" />
-                                            <Text className="text-center text-white text-md md:text-lg">
+                                        <Pressable className={`${isStacked ? "self-center" : ""} ${isMobile ? "mb-8" : ""} flex-row gap-2 mt-7 backdrop-blur-sm w-fit py-4 px-5 items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]`}>
+                                            <img src="/icons/telefoneBranco.svg" className="w-6 h-6" />
+                                            <Text className="text-center text-white text-lg">
                                                 Entrar em contato
                                             </Text>
                                         </Pressable>

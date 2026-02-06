@@ -559,7 +559,12 @@ export default function portifolio() {
 
                             );
                         })} </div>
-                    <View className="w-full items-center justify-center flex-col md:flex-row p-14 bg-black lg:bg-slate-950">
+
+
+
+                    {/* ------------------ RODAPE ------------------ */}
+
+                    <View className="w-full items-center justify-center flex-col md:flex-row pt-14 pb-16 sm:p-16 bg-black lg:bg-slate-950">
 
                         <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
                             <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
@@ -661,7 +666,7 @@ export default function portifolio() {
                         </View>
 
 
-                        <View className="w-full h-1/3 md:h-full md:w-1/4 items-center justify-center gap-4 lg:gap-6">
+                        <View className="w-full h-1/3 md:h-full md:w-1/4 items-center justify-center gap-6 lg:gap-6">
 
                             <View className="flex-row items-center justify-center">
 

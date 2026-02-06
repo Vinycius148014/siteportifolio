@@ -281,7 +281,7 @@ export default function App() {
               </Text>
             </View>
 
-            <View className="flex-row items-center justify-center w-full h-fit gap-5 sm:gap-10">
+            <View className="flex-row max-[390px]:flex-col items-center justify-center w-full h-fit gap-5 sm:gap-10">
 
 
               <motion.div
