@@ -2,6 +2,7 @@ import { Link, useLocalSearchParams } from "expo-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { Linking, Pressable, ScrollView, Text, View } from "react-native";
+import { trackWhatsAppClick } from "../components/analytics";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -126,6 +127,17 @@ export default function portifolio() {
         { src: "/images/esportiva/9-478.avif", category: "esportiva" },
         { src: "/images/esportiva/9-483.avif", category: "esportiva" },
         { src: "/images/esportiva/9-479.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0435.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0935.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_1268.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6239.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6346.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6621.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6733.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7076.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7735.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7847.avif", category: "esportiva" },
+
         { src: "/images/padelliberdade.avif", category: "esportiva" },
         { src: "/images/esportiva/9-506.avif", category: "esportiva" },
         { src: "/images/esportiva/9-484.avif", category: "esportiva" },
@@ -134,6 +146,17 @@ export default function portifolio() {
         { src: "/images/esportiva/9-487.avif", category: "esportiva" },
         { src: "/images/esportiva/9-489.avif", category: "esportiva" },
         { src: "/images/esportiva/9-488.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0705.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0989.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_1321.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6295.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6394.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6624.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6736.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7080.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_8021.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7775.avif", category: "esportiva" },
+
         { src: "/images/esportiva/9-492.avif", category: "esportiva" },
         { src: "/images/esportiva/9-503.avif", category: "esportiva" },
         { src: "/images/esportiva/9-490.avif", category: "esportiva" },
@@ -143,6 +166,16 @@ export default function portifolio() {
         { src: "/images/esportiva/9-475.avif", category: "esportiva" },
         { src: "/images/esportiva/9-476.avif", category: "esportiva" },
         { src: "/images/esportiva/9-497.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0736.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_1061.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_1404.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6302.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6416.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6839.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7196.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0887.avif", category: "esportiva" },
+
+
         { src: "/images/esportiva/9-504.avif", category: "esportiva" },
         { src: "/images/esportiva/9-499.avif", category: "esportiva" },
         { src: "/images/esportiva/9-481.avif", category: "esportiva" },
@@ -152,6 +185,20 @@ export default function portifolio() {
         { src: "/images/esportiva/9-501.avif", category: "esportiva" },
         { src: "/images/esportiva/9-505.avif", category: "esportiva" },
         { src: "/images/esportiva/9-482.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7793.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_1114.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6053.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6319.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6558.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6947.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7360.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7820.avif", category: "esportiva" },
+
+
+        /*--------------- TRILHA --------------- */
+
+
+
 
     ];
 
@@ -335,14 +382,14 @@ export default function portifolio() {
                 )}
 
                 {/* BOTÃO WHATSAPP */}
-                <a
-                    href="https://wa.me/5549984006881"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <Pressable
+                    onPress={() => {
+                        trackWhatsAppClick(url);
+                    }}
                     className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
                 >
                     <img src="/icons/wpp.png" />
-                </a>
+                </Pressable>
 
 
             </div>
@@ -626,7 +673,10 @@ export default function portifolio() {
 
                             <View className="w-fit h-fit flex-row ">
 
-                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(url)}>
+                                <Pressable className=" items-center justify-center w-fit h-fit"
+                                    onPress={() => {
+                                        trackWhatsAppClick(url);
+                                    }}>
                                     <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                                         WhatsApp
                                     </Text>
@@ -674,7 +724,10 @@ export default function portifolio() {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 50 }}
                                     className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => Linking.openURL(url)}>
+                                    <Pressable
+                                        onPress={() => {
+                                            trackWhatsAppClick(url);
+                                        }}>
                                         <img src="/icons/wppbranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                                     </Pressable>
                                 </motion.div>

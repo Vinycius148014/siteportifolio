@@ -2,6 +2,7 @@ import { Link } from "expo-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Linking, Pressable, Text, View, useWindowDimensions } from "react-native";
+import { trackWhatsAppClick } from "../components/analytics";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -178,7 +179,9 @@ export default function portifolio() {
 
                         {/* WHATSAPP */}
                         <Pressable
-                            onPress={() => Linking.openURL(url)}
+                            onPress={() => {
+                                trackWhatsAppClick(url);
+                            }}
                             className="px-4 py-3 w-full rounded-xl flex-row items-center gap-4 shadow-black hover:bg-gray-200 hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]"
                             style={{ backgroundColor: "#00e676" }}>
 

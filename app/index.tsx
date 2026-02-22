@@ -2,6 +2,7 @@ import { Link } from "expo-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Linking, Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import { trackWhatsAppClick } from "../components/analytics";
 import AutoCarousel from "../components/carrossel";
 import Depoimentos from "../components/depoimentos";
 import { botao, textobotao, textoselecionado, viewcarrossel } from "../components/estilos";
@@ -114,14 +115,13 @@ export default function App() {
         )}
 
         {/* BOTÃO WHATSAPP */}
-        <a
-          href="https://wa.me/5549984006881"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
-        >
+        <Pressable
+          onPress={() => {
+            trackWhatsAppClick(url);
+          }}
+          className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition">
           <img src="/icons/wpp.png" />
-        </a>
+        </Pressable>
 
 
       </div>
@@ -562,7 +562,10 @@ export default function App() {
 
             <View className="w-fit h-fit flex-row ">
 
-              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(url)}>
+              <Pressable className=" items-center justify-center w-fit h-fit"
+                onPress={() => {
+                  trackWhatsAppClick(url);
+                }}>
                 <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                   WhatsApp
                 </Text>
@@ -610,7 +613,10 @@ export default function App() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 50 }}
                 className="items-center justify-center w-fit">
-                <Pressable onPress={() => Linking.openURL(url)}>
+                <Pressable
+                  onPress={() => {
+                    trackWhatsAppClick(url);
+                  }}>
                   <img src="/icons/wppbranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                 </Pressable>
               </motion.div>

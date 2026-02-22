@@ -1,7 +1,8 @@
 import { Link } from "expo-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import { Linking, Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import { trackWhatsAppClick } from "../components/analytics";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -25,6 +26,11 @@ export default function portifolio() {
     }, []);
 
 
+
+    const phone = "5549984006881"; // DDI + DDD + número (sem espaços)
+    const message = "Olá, vim pelo seu portfólio!";
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
 
     const [isDesktop, setIsDesktop] = useState(false);
@@ -85,14 +91,16 @@ export default function portifolio() {
 
 
                 {/* BOTÃO WHATSAPP */}
-                <a
-                    href="https://wa.me/5549984006881"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
+                <Pressable
+                    onPress={() => {
+                        trackWhatsAppClick(url);
+                    }}
+                    className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
                 >
                     <img src="/icons/wpp.png" />
-                </a>
+                </Pressable>
+
+
 
 
             </div>
@@ -251,7 +259,7 @@ export default function portifolio() {
                                         : "flex-col max-h-[400px] items-center h-full md:h-auto justify-center md:w-4/5 gap-6 p-8"
                                         }`}
                                 >
-                                    
+
                                     <img
                                         src="/images/selfie.jpg"
                                         className={`${isStacked
@@ -261,7 +269,7 @@ export default function portifolio() {
                                         alt="eu"
                                     />
 
-                                    
+
                                 </View>
 
                             </View>
