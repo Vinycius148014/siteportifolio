@@ -1,7 +1,8 @@
 import { Link } from "expo-router";
+import Head from "expo-router/head";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Linking, Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import { Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
 import { trackWhatsAppClick } from "../components/analytics";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
@@ -75,6 +76,15 @@ export default function portifolio() {
     const [openMenu, setOpenMenu] = useState(false);
 
     return (
+        <>
+        <Head>
+            <title>Sobre | Vinicius Marchetti Fotografo</title>
+            <meta
+                name="description"
+                content="Conheca Vinicius Marchetti, fotografo em Chapeco-SC, com atuacao em ensaios, eventos, esporte, automotivo e fotografia comercial."
+            />
+            <link rel="canonical" href="https://viniciusmarchetti.com.br/sobre" />
+        </Head>
         <View className="flex-1 bg-white">
 
             {/* ASSINATURA */}
@@ -311,5 +321,6 @@ export default function portifolio() {
                 </View>
             </ScrollView>
         </View>
+        </>
     );
 }

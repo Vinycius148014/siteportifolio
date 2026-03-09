@@ -1,8 +1,14 @@
 import { Link, useLocalSearchParams } from "expo-router";
+import Head from "expo-router/head";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { Linking, Pressable, ScrollView, Text, View } from "react-native";
-import { trackWhatsAppClick } from "../components/analytics";
+import { Pressable, ScrollView, Text, View } from "react-native";
+import {
+    trackBanlekClick,
+    trackEmailClick,
+    trackInstagramClick,
+    trackWhatsAppClick,
+} from "../components/analytics";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -347,6 +353,15 @@ export default function portifolio() {
     }, [activeFilter]);
 
     return (
+        <>
+        <Head>
+            <title>Portfolio | Vinicius Marchetti Fotografo</title>
+            <meta
+                name="description"
+                content="Portfolio com trabalhos de fotografia esportiva, automotiva, ensaios, eventos e corporativa em Chapeco-SC."
+            />
+            <link rel="canonical" href="https://viniciusmarchetti.com.br/portifolio" />
+        </Head>
         <View className="flex-1 bg-white">
             {/* ASSINATURA */}
             <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
@@ -685,7 +700,7 @@ export default function portifolio() {
                                 <Text className="text-white text-center text-md"> • <br /></Text>
 
                                 <Pressable className=" items-center justify-center w-fit h-fit"
-                                    onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                                    onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
                                     <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                                         Instagram
                                     </Text>
@@ -693,7 +708,7 @@ export default function portifolio() {
 
                                 <Text className="text-white text-center text-md"> • <br /></Text>
 
-                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(emailUrl)}>
+                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackEmailClick(emailUrl)}>
                                     <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                                         Email
                                     </Text>
@@ -701,7 +716,7 @@ export default function portifolio() {
 
                                 <Text className="text-white text-center text-md"> • <br /></Text>
 
-                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL("https://banlek.com/viniciusmarchetti")}>
+                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
                                     <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                                         Banlek
                                     </Text>
@@ -736,7 +751,7 @@ export default function portifolio() {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 50 }}
                                     className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                                    <Pressable onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
                                         <img src="/icons/instabranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                                     </Pressable>
                                 </motion.div>
@@ -745,7 +760,7 @@ export default function portifolio() {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 50 }}
                                     className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => Linking.openURL(emailUrl)}>
+                                    <Pressable onPress={() => trackEmailClick(emailUrl)}>
                                         <img src="/icons/email1.svg" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                                     </Pressable>
                                 </motion.div>
@@ -754,7 +769,7 @@ export default function portifolio() {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 50 }}
                                     className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => window.open("https://banlek.com/viniciusmarchetti", "_blank")}>
+                                    <Pressable onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
                                         <img src="/icons/banlek.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                                     </Pressable>
                                 </motion.div>
@@ -847,5 +862,6 @@ export default function portifolio() {
 
             </View>
         </View>
+        </>
     );
 }

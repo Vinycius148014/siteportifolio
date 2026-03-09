@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Pressable, View } from "react-native";
+import { trackWhatsAppClick } from "./analytics";
 
 type Props = {
   whatsappUrl: string;
@@ -76,7 +77,7 @@ export default function WhatsAppFloating({ whatsappUrl }: Props) {
 
       {/* BOTÃO WHATSAPP */}
       <Pressable
-        onPress={() => window.open(whatsappUrl, "_blank")}
+        onPress={() => trackWhatsAppClick(whatsappUrl)}
         className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-xl hover:scale-105 transition"
       >
         <img src="/icons/wpp.png" className="w-8 h-8" />

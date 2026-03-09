@@ -1,8 +1,14 @@
 import { Link } from "expo-router";
+import Head from "expo-router/head";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Linking, Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
-import { trackWhatsAppClick } from "../components/analytics";
+import { Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import {
+  trackBanlekClick,
+  trackEmailClick,
+  trackInstagramClick,
+  trackWhatsAppClick,
+} from "../components/analytics";
 import AutoCarousel from "../components/carrossel";
 import Depoimentos from "../components/depoimentos";
 import { botao, textobotao, textoselecionado, viewcarrossel } from "../components/estilos";
@@ -10,6 +16,7 @@ import "../global.css";
 
 
 export default function App() {
+  const headerHeight = 64;
 
   const email = "marchettivinim@email.com";
   const subject = "Contato pelo portfólio";
@@ -81,7 +88,16 @@ export default function App() {
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   return (
-    <View className="flex-1 bg-white">
+    <>
+      <Head>
+        <title>Vinicius Marchetti | Fotografo em Chapeco e regiao</title>
+        <meta
+          name="description"
+          content="Fotografo em Chapeco-SC para ensaios, eventos, esportes, automotivo e fotografia comercial."
+        />
+        <link rel="canonical" href="https://viniciusmarchetti.com.br/" />
+      </Head>
+    <View className="flex-1 bg-purple-950">
 
       {/* ASSINATURA */}
       <View className={`absolute bottom-2 sm:bottom-3 z-30 left-2 sm:left-3`}>
@@ -129,13 +145,12 @@ export default function App() {
 
 
       {/*---------------------------------------- HEADER --------------------------------- */}
-      <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
+      <View className="p-4 flex-row items-center justify-center absolute top-0 left-0 right-0 h-16 z-40 bg-black/50 backdrop-blur-md shadow-[0_0_18px_rgba(0,0,0,0.3)] shadow-black">
 
 
         <Pressable
           onPress={() => setOpenMenu(true)}
-          className="sm:hidden fixed left-4"
-        >
+          className="sm:hidden fixed left-4">
           <img src="/icons/3linha.svg" className="w-7 h-7" />
         </Pressable>
 
@@ -237,7 +252,11 @@ export default function App() {
 
       {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
 
-      <ScrollView className="flex-1 mt-16 bg-black">
+      <ScrollView
+        className="flex-1 bg-black"
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingTop: headerHeight }}>
 
         {/*---------------------------------------- PRIMEIRA PÁGINA --------------------------------- */}
 
@@ -574,7 +593,7 @@ export default function App() {
               <Text className="text-white text-center text-md"> • <br /></Text>
 
               <Pressable className=" items-center justify-center w-fit h-fit"
-                onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
                 <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                   Instagram
                 </Text>
@@ -582,7 +601,7 @@ export default function App() {
 
               <Text className="text-white text-center text-md"> • <br /></Text>
 
-              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL(emailUrl)}>
+              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackEmailClick(emailUrl)}>
                 <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                   Email
                 </Text>
@@ -590,7 +609,7 @@ export default function App() {
 
               <Text className="text-white text-center text-md"> • <br /></Text>
 
-              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => Linking.openURL("https://banlek.com/viniciusmarchetti")}>
+              <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
                 <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
                   Banlek
                 </Text>
@@ -625,7 +644,7 @@ export default function App() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 50 }}
                 className="items-center justify-center w-fit">
-                <Pressable onPress={() => window.open("https://www.instagram.com/fotoviniciusmarchetti/", "_blank")}>
+                <Pressable onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
                   <img src="/icons/instabranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                 </Pressable>
               </motion.div>
@@ -634,7 +653,7 @@ export default function App() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 50 }}
                 className="items-center justify-center w-fit">
-                <Pressable onPress={() => Linking.openURL(emailUrl)}>
+                <Pressable onPress={() => trackEmailClick(emailUrl)}>
                   <img src="/icons/email1.svg" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                 </Pressable>
               </motion.div>
@@ -643,7 +662,7 @@ export default function App() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 50 }}
                 className="items-center justify-center w-fit">
-                <Pressable onPress={() => window.open("https://banlek.com/viniciusmarchetti", "_blank")}>
+                <Pressable onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
                   <img src="/icons/banlek.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
                 </Pressable>
               </motion.div>
@@ -671,5 +690,6 @@ export default function App() {
 
       </ScrollView >
     </View >
+    </>
   );
 }

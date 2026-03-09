@@ -3,7 +3,8 @@ import Head from "expo-router/head";
 import { useEffect } from "react";
 import { Platform } from "react-native";
 
-const GA_MEASUREMENT_ID = "G-MG62D152NH";
+const GA_MEASUREMENT_ID =
+  process.env.EXPO_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-MG62D152NH";
 const GA_INLINE_SCRIPT = `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}

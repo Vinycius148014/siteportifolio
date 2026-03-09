@@ -1,8 +1,14 @@
 import { Link } from "expo-router";
+import Head from "expo-router/head";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Linking, Pressable, Text, View, useWindowDimensions } from "react-native";
-import { trackWhatsAppClick } from "../components/analytics";
+import { Pressable, Text, View, useWindowDimensions } from "react-native";
+import {
+    trackBanlekClick,
+    trackEmailClick,
+    trackInstagramClick,
+    trackWhatsAppClick,
+} from "../components/analytics";
 import { botao, textobotao, textoselecionado } from "../components/estilos";
 import "../global.css";
 
@@ -41,6 +47,15 @@ export default function portifolio() {
     const [openMenu, setOpenMenu] = useState(false);
 
     return (
+        <>
+        <Head>
+            <title>Contato | Vinicius Marchetti Fotografo</title>
+            <meta
+                name="description"
+                content="Entre em contato com Vinicius Marchetti para orcamentos de fotografia em Chapeco e regiao."
+            />
+            <link rel="canonical" href="https://viniciusmarchetti.com.br/contato" />
+        </Head>
         <View className="flex-1 bg-black">
 
             {/*----------------------------------------- ASSINATURA --------------------------------- */}
@@ -198,7 +213,7 @@ export default function portifolio() {
 
                         {/* INSTAGRAM */}
                         <Pressable
-                            onPress={() => Linking.openURL(url2)}
+                            onPress={() => trackInstagramClick(url2)}
                             className="w-full h-auto rounded-xl overflow-hidden flex-row items-center px-4 py-3 gap-4 shadow-black hover:bg-gray-200 hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
@@ -219,7 +234,7 @@ export default function portifolio() {
 
                         {/* EMAIL */}
                         <Pressable
-                            onPress={() => Linking.openURL(emailUrl)}
+                            onPress={() => trackEmailClick(emailUrl)}
                             className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
@@ -234,7 +249,7 @@ export default function portifolio() {
 
                         {/* BANLEK */}
                         <Pressable
-                            onPress={() => Linking.openURL(banlek)}
+                            onPress={() => trackBanlekClick(banlek)}
                             className="bg-black px-4 py-3 w-full h-auto rounded-xl flex-row items-center gap-4 shadow-black hover:shadow-none shadow-[0_0_5px_rgba(0,0,0,0.3)]">
 
                             <img
@@ -255,5 +270,6 @@ export default function portifolio() {
 
             </View>
         </View>
+        </>
     );
 }
