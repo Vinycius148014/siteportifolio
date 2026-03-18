@@ -200,7 +200,7 @@ export default function portifolio() {
 
                         <View className="absolute inset-0 bg-gradient-to-b from-white/15 via-zinc-900 to-black" />
                         <View className="absolute -left-32 -top-32 h-80 w-80 rounded-full bg-white/15 blur-3xl" />
-                        <View className="absolute -bottom-40 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+                        <View className="absolute bottom-0 -right-24 h-96 w-96 rounded-full bg-white/15 blur-3xl" />
                         <View className="absolute inset-0 bg-black/25" />
 
                         <Text className="absolute left-6 top-8 lg:top-6 text-5xl font-bold tracking-[0.2em] text-white/5">
@@ -234,7 +234,7 @@ export default function portifolio() {
                         </View>
 
                         <View
-                            className="w-full lg:w-2/5 items-center justify-center p-6 sm:p-8 lg:p-12 lg:pr-28 xl:pr-12 mt-0 sm:mt-8  lg:mt-0"
+                            className="w-full lg:w-2/5 items-center justify-center p-6 sm:p-8 lg:p-12 lg:pr-28 xl:pr-12 mt-0 sm:mt-8 lg:mt-0 mb-8"
                             style={isLg ? { minHeight: heroHeight, height: heroHeight } : undefined}>
                             <View className="sm:gap-5 lg:gap-0 sm:py-5 lg:py-5 rounded-3xl h-full max-h-[550px] sm:max-h-[650px] sm:min-h-[520px] lg:min-h-[600px] min-w-0 lg:min-w-[425px] max-w-[350px] sm:max-w-[500px] w-full border border-white/20 bg-white/5 backdrop-blur-sm shadow-[0_0_25px_rgba(255,255,255,0.2)] px-6 sm:px-8 lg:px-12 flex-col">
 
@@ -314,6 +314,7 @@ export default function portifolio() {
                             </View>
                         </View>
                     </View>
+
                 </ScrollView>
             </View >
         </>

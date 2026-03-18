@@ -174,17 +174,26 @@ export default function Sobre() {
             <View className="absolute -bottom-40 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
             <View className="absolute inset-0 bg-black/25" />
 
-            <Text className="absolute left-6 top-10 text-5xl font-bold tracking-[0.3em] text-white/5 sm:text-7xl lg:text-8xl">
+            <Text className="absolute left-6 top-7 lg:top-4 text-5xl font-bold tracking-[0.2em] text-white/5 sm:text-7xl lg:text-8xl">
               SOBRE
             </Text>
 
             <View className="relative z-10 w-full max-w-6xl self-center py-16 sm:px-10 sm:py-20 lg:px-12">
+
               <View className="flex flex-col items-center gap-10 lg:flex-row lg:items-stretch">
-                <View className="mx-auto w-full max-w-[420px] lg:mx-0 lg:w-5/12 lg:max-w-none px-5 sm:px-0">
-                  <View className="relative h-auto w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-[0_0_25px_rgba(255,255,255,0.2)] lg:aspect-square">
+
+                <View className="mx-auto w-full max-w-[420px] lg:mx-0 lg:w-5/12 lg:max-w-none px-5 sm:px-0 ">
+
+                  <View className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-[0_0_25px_rgba(255,255,255,0.2)]">
                     <img
                       src="/images/selfie.jpg"
-                      className="block h-auto w-full max-w-full object-cover rounded-2xl lg:h-full"
+                      className="block lg:hidden h-auto w-full max-w-full object-cover rounded-2xl lg:h-full"
+                      alt="Vinicius Marchetti"
+                    />
+
+                    <img
+                      src="/images/selfieVertical.jpg"
+                      className="lg:block hidden h-auto w-full max-w-full object-cover rounded-2xl lg:h-full"
                       alt="Vinicius Marchetti"
                     />
 
@@ -202,18 +211,16 @@ export default function Sobre() {
                 <View className="w-full px-6 sm:px-0 lg:px-6 lg:w-7/12">
                   <Text className="text-4xl font-thin text-white sm:text-5xl">Sobre mim</Text>
                   <Text className="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
-                    Sou Vinicius Marchetti, fotógrafo em Chapecó-SC. Trabalho com fotografia esportiva,
-                    automotiva, ensaios, eventos e projetos comerciais, sempre com direção criativa e
-                    foco em resultado.
+                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa, sempre buscando dar utilidade em cada clique.
                   </Text>
                   <Text className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
-                    Para mim, fotografia não é só estética: é posicionamento, percepção e memória. Em
-                    cada trabalho eu busco imagens que valorizem pessoas, contem contexto e reforcem a
-                    identidade de quem está sendo fotografado.
+                    Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios.
                   </Text>
                   <Text className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
-                    Do briefing à entrega final, mantenho processo organizado, comunicação direta e edição
-                    consistente para entregar um material forte, autêntico e pronto para uso.
+                    Sempre busco registrar imagens que transmitam emoção e tenham significado para quem vê. Seja em um evento cheio de energia, em um ensaio pessoal, num evento automotivo ou numa produção comercial, meu objetivo é entregar um resultado verdadeiro e bem construído.
+                  </Text>
+                  <Text className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+                    Se quiser conhecer mais do meu trabalho ou criar algo juntos, será um prazer fazer parte do seu projeto.
                   </Text>
 
                   <View className="mt-8 flex-row flex-wrap items-center gap-3">
@@ -251,6 +258,8 @@ export default function Sobre() {
             </View>
           </View>
 
+          <View className="w-full h-fit border border-white/40" />
+
           <View className="relative w-full overflow-hidden border-t border-white/10 bg-black px-6 py-16 sm:px-10 lg:px-12">
             <View className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-black/25" />
             <View className="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
@@ -264,39 +273,42 @@ export default function Sobre() {
 
               <View className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <View className="w-full rounded-2xl border border-white/10 bg-white/5 p-5 sm:w-[48%]">
-                  <Text className="text-lg font-medium text-white">Briefing estratégico</Text>
+                  <Text className="text-lg font-medium text-white">Briefing</Text>
                   <Text className="mt-2 text-sm leading-relaxed text-white/75">
                     Alinhamento de proposta, estilo visual e uso final das imagens antes do clique.
+                    Definição de estilo, referências e linguagem estética para garantir que as imagens transmitam exatamente a mensagem desejada.
                   </Text>
                 </View>
 
                 <View className="w-full rounded-2xl border border-white/10 bg-white/5 p-5 sm:w-[48%]">
-                  <Text className="text-lg font-medium text-white">Direção durante a sessão</Text>
+                  <Text className="text-lg font-medium text-white">Equipamento profissional</Text>
                   <Text className="mt-2 text-sm leading-relaxed text-white/75">
-                    Orientação leve para manter naturalidade, expressão e narrativa visual do trabalho.
+                    Uso de equipamentos adequados e técnicas avançadas para garantir qualidade, nitidez e consistência nas imagens.
                   </Text>
                 </View>
 
                 <View className="w-full rounded-2xl border border-white/10 bg-white/5 p-5 sm:w-[48%]">
-                  <Text className="text-lg font-medium text-white">Edição e padronização</Text>
+                  <Text className="text-lg font-medium text-white">Edição de fotos e vídeos</Text>
                   <Text className="mt-2 text-sm leading-relaxed text-white/75">
-                    Tratamento consistente para reforçar identidade, impacto e profissionalismo.
+                    Tratamento e finalização com consistência visual para valorizar cor, luz, atmosfera e identidade do material, mantendo um resultado limpo, profissional e pronto para uso.
                   </Text>
                 </View>
 
                 <View className="w-full rounded-2xl border border-white/10 bg-white/5 p-5 sm:w-[48%]">
                   <Text className="text-lg font-medium text-white">Entrega organizada</Text>
                   <Text className="mt-2 text-sm leading-relaxed text-white/75">
-                    Arquivos entregues prontos para redes sociais, campanhas e materiais comerciais.
+                    Arquivos entregues com agilidade e prontos para redes sociais, campanhas e materiais comerciais.
                   </Text>
                 </View>
               </View>
             </View>
           </View>
+
+          <View className="w-full h-fit border border-white/40" />
           {/*---------------------------------------- RODAPÉ ----------------------------------------------------------------------- */}
 
           <View className="w-full items-center justify-center flex-col md:flex-row pt-14 pb-16 sm:p-16 bg-black">
-            
+
             <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
               <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
             </View>

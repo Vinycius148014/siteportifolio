@@ -363,6 +363,8 @@ export default function App() {
             </View>
           </View>
 
+          <View className="w-full h-fit border border-white/40" />
+
           {/*---------------------------------------- PRÉVIA PORTIFÓLIO --------------------------------- */}
 
           <View className="relative h-fit w-screen items-center justify-start overflow-hidden bg-black">
@@ -466,6 +468,8 @@ export default function App() {
 
           </View>
 
+          <View className="w-full h-fit border border-white/40" />
+
           {/*---------------------------------------- SOBRE MIM --------------------------------- */}
           <View className="relative w-full overflow-hidden border-y border-white/10 bg-black">
             <View className="absolute inset-0 bg-gradient-to-br from-white/10 via-black to-transparent" />
@@ -543,11 +547,12 @@ export default function App() {
             </View>
           </View>
 
+          <View className="w-full h-fit border border-white/40" />
 
           {/*---------------------------------------- RODAPÉ ----------------------------------------------------------------------- */}
 
           <View className="w-full items-center justify-center flex-col md:flex-row pt-14 pb-16 sm:p-16 bg-black">
-            
+
             <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
               <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
             </View>
