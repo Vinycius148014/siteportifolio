@@ -171,12 +171,12 @@ export default function portifolio() {
 
             {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
 
-            <View className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none">
-                {/* Imagem DESKTOP (>= sm) */}
+            <View className="fixed inset-0 z-40 flex items-center justify-center overflow-hidden pointer-events-none">
                 <img
                     src="/images/3.avif"
-                    className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-60 -z-10"
+                    className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
                 />
+                <View className="absolute inset-0 bg-black/35" />
 
 
                 <View className="bg-white mx-6 px-6 sm:px-12 py-8 rounded-lg shadow-black max-w-[1100px] max-h-[85vh] w-auto overflow-auto pointer-events-auto shadow-[0_0_5px_rgba(0,0,0,0.3)]">

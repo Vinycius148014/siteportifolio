@@ -29,14 +29,14 @@ const depoimentos2 = [
 
 export default function Depoimentos() {
     return (
-        <div className="w-full flex flex-col gap-0 items-center justify-center mt-10 mb-10">
+        <div className="w-full flex flex-col gap-0 items-center justify-center mt-10 mb-10 text-center">
 
-            <div className="flex flex-col items-center justify-center">
-                <h2 className="text-white text-2xl sm:text-4xl font-bold">
+            <div className="flex flex-col items-center justify-center rounded-2xl px-6 py-4 backdrop-blur-sm whitespace-nowrap">
+                <h2 className="text-white text-2xl sm:text-4xl font-extrabold tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     O que dizem sobre meu trabalho
                 </h2>
 
-                <p className="text-gray-300 text-sm sm:text-base mt-2 mb-6">
+                <p className="mt-2 mb-6 text-sm text-white/85 sm:text-base">
                     Feedbacks reais de quem viveu a experiência 📸
                 </p>
             </div>

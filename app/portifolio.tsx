@@ -354,514 +354,514 @@ export default function portifolio() {
 
     return (
         <>
-        <Head>
-            <title>Portfolio | Vinicius Marchetti Fotografo</title>
-            <meta
-                name="description"
-                content="Portfolio com trabalhos de fotografia esportiva, automotiva, ensaios, eventos e corporativa em Chapeco-SC."
-            />
-            <link rel="canonical" href="https://viniciusmarchetti.com.br/portifolio" />
-        </Head>
-        <View className="flex-1 bg-white">
-            {/* ASSINATURA */}
-            <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
-                <Text className={"text-white text-xs"}>
-                    Desenvolvido por Vinicius Marchetti.
-                </Text>
-            </View>
-
-
-            {/* WHATSAPP */}
-            <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2`}>
-
-                {/* BALÃO */}
-                {showBalloon && (
-                    <div className="relative animate-fadeIn">
-
-                        {/* BOTÃO FECHAR */}
-                        <button
-                            onClick={() => {
-                                setShowBalloon(false);
-                            }}
-                            className="absolute sm:-top-3 sm:-left-3 -top-4 -left-4 w-7 h-7 z-50 bg-black text-white rounded-full text-xs flex items-center justify-center hover:bg-gray-800"
-                        >
-                            X
-                        </button>
-
-                        {/* IMAGEM DO BALÃO */}
-                        <img
-                            src="/icons/balao.svg"
-                            alt="Chame no WhatsApp"
-                            className="lg:h-20 sm:h-16 h-14 drop-shadow-lg" />
-                    </div>
-                )}
-
-                {/* BOTÃO WHATSAPP */}
-                <Pressable
-                    onPress={() => {
-                        trackWhatsAppClick(url);
-                    }}
-                    className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
-                >
-                    <img src="/icons/wpp.png" />
-                </Pressable>
-
-
-            </div>
-
-            {/*---------------------------------------- HEADER --------------------------------- */}
-            <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
-
-
-                <Pressable
-                    onPress={() => setOpenMenu(true)}
-                    className="sm:hidden fixed left-4"
-                >
-                    <img src="/icons/3linha.svg" className="w-7 h-7" />
-                </Pressable>
-
-                <Link href="/" asChild>
-                    <Pressable className="w-fit justify-center items-center p-1">
-
-                        <motion.img
-                            src="/icons/MinhaBranca.png"
-                            className="w-auto h-8 ml-3"
-                            animate={{ scale: 1.2 }}
-                            whileHover={{ scale: 1.26 }}
-                            transition={{ type: "spring", stiffness: 100 }} />
-
-                    </Pressable>
-                </Link>
-
-                <View className="hidden sm:flex sm:flex-row ml-auto gap-7">
-                    <Link href="/" asChild>
-                        <Pressable className={botao}>
-                            <Text className={textobotao}>Início</Text>
-                        </Pressable>
-                    </Link>
-
-                    <Link href="/portifolio" asChild>
-                        <Pressable className={botao}>
-                            <Text className={textoselecionado}>Portfólio</Text>
-                        </Pressable>
-                    </Link>
-
-                    <Link href="/sobre" asChild>
-                        <Pressable className={botao}>
-                            <Text className={textobotao}>Sobre</Text>
-                        </Pressable>
-                    </Link>
-
-                    <Link href="/contato" asChild>
-                        <Pressable className={botao}>
-                            <Text className={textobotao}>Contato</Text>
-                        </Pressable>
-                    </Link>
+            <Head>
+                <title>Portfolio | Vinicius Marchetti Fotografo</title>
+                <meta
+                    name="description"
+                    content="Portfolio com trabalhos de fotografia esportiva, automotiva, ensaios, eventos e corporativa em Chapeco-SC."
+                />
+                <link rel="canonical" href="https://viniciusmarchetti.com.br/portifolio" />
+            </Head>
+            <View className="flex-1 bg-white">
+                {/* ASSINATURA */}
+                <View className={`absolute bottom-2 sm:bottom-3 z-40 left-2 sm:left-3`}>
+                    <Text className={"text-white text-xs"}>
+                        Desenvolvido por Vinicius Marchetti.
+                    </Text>
                 </View>
-            </View>
 
 
-            {/*---------------------------------------- SIDEBAR MENU --------------------------------- */}
+                {/* WHATSAPP */}
+                <div className={`fixed sm:bottom-6 bottom-5 ${isDesktop ? 'right-10' : 'right-4'} z-50 flex flex-col items-end gap-2`}>
 
-            {openMenu && (
-                <>
-                    {/* BACKDROP — clica e fecha */}
+                    {/* BALÃO */}
+                    {showBalloon && (
+                        <div className="relative animate-fadeIn">
+
+                            {/* BOTÃO FECHAR */}
+                            <button
+                                onClick={() => {
+                                    setShowBalloon(false);
+                                }}
+                                className="absolute sm:-top-3 sm:-left-3 -top-4 -left-4 w-7 h-7 z-50 bg-black text-white rounded-full text-xs flex items-center justify-center hover:bg-gray-800"
+                            >
+                                X
+                            </button>
+
+                            {/* IMAGEM DO BALÃO */}
+                            <img
+                                src="/icons/balao.svg"
+                                alt="Chame no WhatsApp"
+                                className="lg:h-20 sm:h-16 h-14 drop-shadow-lg" />
+                        </div>
+                    )}
+
+                    {/* BOTÃO WHATSAPP */}
                     <Pressable
-                        className="fixed inset-0 bg-black/60 z-40"
-                        onPress={() => setOpenMenu(false)}
-                    />
-
-                    {/* SIDEBAR */}
-                    <motion.div
-                        initial={{ x: -200, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: -200, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="fixed left-0 top-0 h-full w-64 bg-black z-50 shadow-xl p-6"
+                        onPress={() => {
+                            trackWhatsAppClick(url);
+                        }}
+                        className="lg:w-14 lg:h-14 sm:w-12 sm:h-12 h-10 w-10 flex items-center justify-center hover:scale-105 transition"
                     >
-                        <img
-                            src="/icons/MinhaBranca.png"
-                            className="w-auto h-11" />
+                        <img src="/icons/wpp.png" />
+                    </Pressable>
 
+
+                </div>
+
+                {/*---------------------------------------- HEADER --------------------------------- */}
+                <View className="p-4 flex-row items-center justify-center fixed top-0 left-0 w-full h-16 bg-black">
+
+
+                    <Pressable
+                        onPress={() => setOpenMenu(true)}
+                        className="sm:hidden fixed left-4"
+                    >
+                        <img src="/icons/3linha.svg" className="w-7 h-7" />
+                    </Pressable>
+
+                    <Link href="/" asChild>
+                        <Pressable className="w-fit justify-center items-center p-1">
+
+                            <motion.img
+                                src="/icons/MinhaBranca.png"
+                                className="w-auto h-8 ml-3"
+                                animate={{ scale: 1.2 }}
+                                whileHover={{ scale: 1.26 }}
+                                transition={{ type: "spring", stiffness: 100 }} />
+
+                        </Pressable>
+                    </Link>
+
+                    <View className="hidden sm:flex sm:flex-row ml-auto gap-7">
                         <Link href="/" asChild>
-                            <Pressable className="py-3 flex-row mt-5 items-center justify-start gap-2">
-                                <img src="/icons/home.svg" className="w-5 h-5" />
-                                <Text className="text-xl text-white">Início</Text>
+                            <Pressable className={botao}>
+                                <Text className={textobotao}>Início</Text>
                             </Pressable>
                         </Link>
 
                         <Link href="/portifolio" asChild>
-                            <Pressable className="py-3 flex-row items-center justify-start gap-2">
-                                <img src="/icons/cameraBranca.svg" className="w-5 h-5" />
-                                <Text className="text-xl text-white">Portfólio</Text>
+                            <Pressable className={botao}>
+                                <Text className={textoselecionado}>Portfólio</Text>
                             </Pressable>
                         </Link>
 
                         <Link href="/sobre" asChild>
-                            <Pressable className="py-3 flex-row items-center justify-start gap-2">
-                                <img src="/icons/pessoa.svg" className="w-5 h-5" />
-                                <Text className="text-xl text-white">Sobre</Text>
+                            <Pressable className={botao}>
+                                <Text className={textobotao}>Sobre</Text>
                             </Pressable>
                         </Link>
 
                         <Link href="/contato" asChild>
-                            <Pressable className="py-3 flex-row items-center justify-start gap-2">
-                                <img src="/icons/telefoneBranco.svg" className="w-5 h-5" />
-                                <Text className="text-xl text-white">Contato</Text>
+                            <Pressable className={botao}>
+                                <Text className={textobotao}>Contato</Text>
                             </Pressable>
                         </Link>
-                    </motion.div>
-                </>
-            )}
-
-            {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
-            <View className="mt-16">
-                <ScrollView
-                    className="bg-black w-full"
-                    style={{ height: 'calc(100dvh - 64px)' } as any}
-                    scrollEnabled={!selectedImage}>
-
-                    <Text className="text-5xl font-thin text-center m-10 text-white">Portfólio</Text>
-
-                    {/* ------------------ FILTROS (abas) ------------------ */}
-                    <div className="max-w-[1200px] mx-auto px-6 mb-2 flex flex-col gap-3">
-                        <div className="flex gap-8 items-center flex-wrap">
-                            <div className="flex gap-3 items-center justify-center flex-wrap">
-                                {FILTERS.map((f) => {
-                                    const label = f === "all"
-                                        ? "Todos"
-                                        : f.charAt(0).toUpperCase() + f.slice(1);
-
-                                    const active = f === activeFilter;
-
-                                    return (
-                                        <button
-                                            key={f}
-                                            onClick={() => setActiveFilter(f)}
-                                            className={`w-24 justify-center items-center transition-all duration-150 ${active
-                                                ? "text-center text-white text-lg font-thin underline decoration-2 underline-offset-4"
-                                                : "text-center text-white text-lg font-thin hover:underline hover:decoration-2 hover:underline-offset-4"
-                                                }`}>
-                                            <span className={`transition-all duration-150 ${active
-                                                ? "w-24 justify-center items-center"
-                                                : "w-24 justify-center items-center"
-                                                }`}>
-                                                {label}
-                                            </span>
-                                        </button>
-                                    );
-                                })}
-                            </div>
-
-                        </div>
-                        <Text className="text-sm text-white items-center text-center justify-center md:items-start md:text-start mb-6">
-                            Mostrando <strong>{filtered.length}</strong> foto(s) — categoria: <strong>{activeFilter === "all" ? "Todos" : activeFilter}</strong>
-                        </Text>
-
-                    </div>
-                    <View className="flex-row sm:hidden items-center justify-center mb-1">
-                        <Text className="text-sm sm:text-md text-center text-white">Clique na foto para vê-la em tela cheia.</Text>
-                        <img src="/icons/cliquetelabranco.svg" className="sm:w-6 sm:h-6 w-4 h-4 ml-2" />
                     </View>
+                </View>
 
-                    {/* ------------------ GALERIA (usa array filtrado) ------------------ */}
-                    <div key={activeFilter} className="columns-4 gap-2 md:gap-6 md:px-10 px-5">
-                        {filtered.map((image, index) => {
-                            const key = image.src; // chave única
-                            const loaded = loadedMap[key] === true;
 
-                            return (
-                                <div
-                                    key={key}
-                                    className="group relative md:mb-6 mb-2 inline-block w-full align-top break-inside-avoid overflow-hidden rounded-sm bg-black/10"
-                                    style={{ aspectRatio: ratioMap[key] ?? 4 / 5 }}>
+                {/*---------------------------------------- SIDEBAR MENU --------------------------------- */}
 
-                                    {/* SKELETON */}
-                                    {!loaded && (
-                                        <div className="absolute inset-0 z-10 overflow-hidden rounded-md bg-[#1c1c1c]">
-                                            <div className="absolute inset-0 bg-gray-400 rounded-sm" />
-                                            <div className="absolute -inset-y-24 -left-[60%] w-[60%] h-[300%] animate-skeletonNubank bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-                                        </div>
-                                    )}
+                {openMenu && (
+                    <>
+                        {/* BACKDROP — clica e fecha */}
+                        <Pressable
+                            className="fixed inset-0 bg-black/60 z-40"
+                            onPress={() => setOpenMenu(false)}
+                        />
 
-                                    {/* IMAGEM */}
-                                    <img
-                                        ref={handleImgRef(key, index)}
-                                        src={image.src}
-                                        className={`absolute inset-0 w-full h-full object-contain cursor-pointer hover:opacity-50 transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"
-                                            }`}
-                                        onClick={() => setSelectedIndex(index)}
-                                        onLoad={(e) => {
-                                            const img = e.currentTarget as HTMLImageElement;
-                                            const ratio = img.naturalWidth / img.naturalHeight;
+                        {/* SIDEBAR */}
+                        <motion.div
+                            initial={{ x: -200, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: -200, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="fixed left-0 top-0 h-full w-64 bg-black z-50 shadow-xl p-6"
+                        >
+                            <img
+                                src="/icons/MinhaBranca.png"
+                                className="w-auto h-11" />
 
-                                            setRatioMap((prev) => ({ ...prev, [key]: ratio }));
-                                            setLoadedMap((prev) => ({ ...prev, [key]: true }));
-                                        }}
-                                        onError={() => setLoadedMap((prev) => ({ ...prev, [key]: true }))}
-                                        loading="lazy"
-                                    />
+                            <Link href="/" asChild>
+                                <Pressable className="py-3 flex-row mt-5 items-center justify-start gap-2">
+                                    <img src="/icons/home.svg" className="w-5 h-5" />
+                                    <Text className="text-xl text-white">Início</Text>
+                                </Pressable>
+                            </Link>
 
-                                    {/* OVERLAY HOVER */}
-                                    <div
-                                        className="absolute inset-0 z-20 hidden sm:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-                                    >
-                                        <div className="flex items-center gap-1 flex-col-reverse xl:flex-row p-4">
-                                            <span className="text-xs md:text-sm text-center font-medium text-white ">
-                                                Ver em tela cheia.
-                                            </span>
-                                            <img
-                                                src="/icons/cliquetelabranco.svg"
-                                                className="w-5 h-5"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
+                            <Link href="/portifolio" asChild>
+                                <Pressable className="py-3 flex-row items-center justify-start gap-2">
+                                    <img src="/icons/cameraBranca.svg" className="w-5 h-5" />
+                                    <Text className="text-xl text-white">Portfólio</Text>
+                                </Pressable>
+                            </Link>
+
+                            <Link href="/sobre" asChild>
+                                <Pressable className="py-3 flex-row items-center justify-start gap-2">
+                                    <img src="/icons/pessoa.svg" className="w-5 h-5" />
+                                    <Text className="text-xl text-white">Sobre</Text>
+                                </Pressable>
+                            </Link>
+
+                            <Link href="/contato" asChild>
+                                <Pressable className="py-3 flex-row items-center justify-start gap-2">
+                                    <img src="/icons/telefoneBranco.svg" className="w-5 h-5" />
+                                    <Text className="text-xl text-white">Contato</Text>
+                                </Pressable>
+                            </Link>
+                        </motion.div>
+                    </>
+                )}
+
+                {/*---------------------------------------- PAGINA PRINCIPAL --------------------------------- */}
+                <View className="mt-16 bg-black">
+                    <ScrollView
+                        className="bg-gradient-to-r from-white/10 via-transparent to-white/10 w-full"
+                        style={{ height: 'calc(100dvh - 64px)' } as any}
+                        scrollEnabled={!selectedImage}>
+
+                        <Text className="text-5xl font-thin text-center m-10 text-white">Portfólio</Text>
+
+                        {/* ------------------ FILTROS (abas) ------------------ */}
+                        <div className="max-w-[1200px] mx-auto px-6 mb-2 flex flex-col gap-3">
+                            <div className="flex gap-8 items-center flex-wrap">
+                                <div className="flex gap-3 items-center justify-center flex-wrap">
+                                    {FILTERS.map((f) => {
+                                        const label = f === "all"
+                                            ? "Todos"
+                                            : f.charAt(0).toUpperCase() + f.slice(1);
+
+                                        const active = f === activeFilter;
+
+                                        return (
+                                            <button
+                                                key={f}
+                                                onClick={() => setActiveFilter(f)}
+                                                className={`w-24 justify-center items-center transition-all duration-150 ${active
+                                                    ? "text-center text-white text-lg font-thin underline decoration-2 underline-offset-4"
+                                                    : "text-center text-white text-lg font-thin hover:underline hover:decoration-2 hover:underline-offset-4"
+                                                    }`}>
+                                                <span className={`transition-all duration-150 ${active
+                                                    ? "w-24 justify-center items-center"
+                                                    : "w-24 justify-center items-center"
+                                                    }`}>
+                                                    {label}
+                                                </span>
+                                            </button>
+                                        );
+                                    })}
                                 </div>
 
-                            );
-                        })} </div>
-
-
-
-                    {/* ------------------ RODAPE ------------------ */}
-
-                    <View className="w-full items-center justify-center flex-col md:flex-row pt-14 pb-16 sm:p-16 bg-black lg:bg-slate-950">
-
-                        <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
-                            <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
-                        </View>
-
-
-                        <View className="w-full h-1/3 md:h-full md:w-2/4 items-center justify-center gap-1 m-2 ">
-
-                            <Text className="text-white text-center text-md">
-                                Vinicius Marchetti Fotógrafo
+                            </div>
+                            <Text className="text-sm text-white items-center text-center justify-center md:items-start md:text-start mb-6">
+                                Mostrando <strong>{filtered.length}</strong> foto(s) — categoria: <strong>{activeFilter === "all" ? "Todos" : activeFilter}</strong>
                             </Text>
 
-                            <View className="w-fit h-fit flex-row ">
+                        </div>
+                        <View className="flex-row sm:hidden items-center justify-center mb-1">
+                            <Text className="text-sm sm:text-md text-center text-white">Clique na foto para vê-la em tela cheia.</Text>
+                            <img src="/icons/cliquetelabranco.svg" className="sm:w-6 sm:h-6 w-4 h-4 ml-2" />
+                        </View>
 
-                                <Text className="text-white text-center text-md">Links: </Text>
+                        {/* ------------------ GALERIA (usa array filtrado) ------------------ */}
+                        <div key={activeFilter} className="columns-4 gap-2 md:gap-6 md:px-10 px-5">
+                            {filtered.map((image, index) => {
+                                const key = image.src; // chave única
+                                const loaded = loadedMap[key] === true;
 
-                                <Link href="/" asChild>
-                                    <Pressable className=" items-center justify-center w-fit h-fit">
-                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                            Início
-                                        </Text>
-                                    </Pressable>
-                                </Link>
+                                return (
+                                    <div
+                                        key={key}
+                                        className="group relative md:mb-6 mb-2 inline-block w-full align-top break-inside-avoid overflow-hidden rounded-sm bg-black/10"
+                                        style={{ aspectRatio: ratioMap[key] ?? 4 / 5 }}>
 
-                                <Text className="text-white text-center text-md"> | <br /></Text>
+                                        {/* SKELETON */}
+                                        {!loaded && (
+                                            <div className="absolute inset-0 z-10 overflow-hidden rounded-md bg-[#1c1c1c]">
+                                                <div className="absolute inset-0 bg-gray-400 rounded-sm" />
+                                                <div className="absolute -inset-y-24 -left-[60%] w-[60%] h-[300%] animate-skeletonNubank bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                                            </div>
+                                        )}
 
-                                <Link href="/portifolio" asChild>
-                                    <Pressable className="items-center justify-center w-fit h-fit">
-                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                            Portfólio
-                                        </Text>
-                                    </Pressable>
-                                </Link>
+                                        {/* IMAGEM */}
+                                        <img
+                                            ref={handleImgRef(key, index)}
+                                            src={image.src}
+                                            className={`absolute inset-0 w-full h-full object-contain cursor-pointer hover:opacity-50 transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"
+                                                }`}
+                                            onClick={() => setSelectedIndex(index)}
+                                            onLoad={(e) => {
+                                                const img = e.currentTarget as HTMLImageElement;
+                                                const ratio = img.naturalWidth / img.naturalHeight;
 
-                                <Text className="text-white text-center text-md"> | <br /></Text>
+                                                setRatioMap((prev) => ({ ...prev, [key]: ratio }));
+                                                setLoadedMap((prev) => ({ ...prev, [key]: true }));
+                                            }}
+                                            onError={() => setLoadedMap((prev) => ({ ...prev, [key]: true }))}
+                                            loading="lazy"
+                                        />
 
-                                <Link href="/sobre" asChild>
-                                    <Pressable className="items-center justify-center w-fit h-fit">
-                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                            Sobre
-                                        </Text>
-                                    </Pressable>
-                                </Link>
+                                        {/* OVERLAY HOVER */}
+                                        <div
+                                            className="absolute inset-0 z-20 hidden sm:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+                                        >
+                                            <div className="flex items-center gap-1 flex-col-reverse xl:flex-row p-4">
+                                                <span className="text-xs md:text-sm text-center font-medium text-white ">
+                                                    Ver em tela cheia.
+                                                </span>
+                                                <img
+                                                    src="/icons/cliquetelabranco.svg"
+                                                    className="w-5 h-5"
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                <Text className="text-white text-center text-md"> | <br /></Text>
+                                );
+                            })} </div>
 
-                                <Link href="/contato" asChild>
-                                    <Pressable className=" items-center justify-center w-fit h-fit">
-                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                            Contato
-                                        </Text>
-                                    </Pressable>
-                                </Link>
 
+
+                        {/* ------------------ RODAPE ------------------ */}
+
+                        <View className="w-full items-center justify-center flex-col md:flex-row pt-14 pb-16 sm:p-16 bg-black">
+
+                            <View className="w-full h-1/3 md:h-full md:w-1/4 items-center md:items-start justify-center m-2">
+                                <img className="w-auto h-full max-h-28 aspect-square rounded-xl" src="/icons/eu.jpg" />
                             </View>
 
 
+                            <View className="w-full h-1/3 md:h-full md:w-2/4 items-center justify-center gap-1 m-2 ">
+
+                                <Text className="text-white text-center text-md">
+                                    Vinicius Marchetti Fotógrafo
+                                </Text>
+
+                                <View className="w-fit h-fit flex-row ">
+
+                                    <Text className="text-white text-center text-md">Links: </Text>
+
+                                    <Link href="/" asChild>
+                                        <Pressable className=" items-center justify-center w-fit h-fit">
+                                            <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                                Início
+                                            </Text>
+                                        </Pressable>
+                                    </Link>
+
+                                    <Text className="text-white text-center text-md"> | <br /></Text>
+
+                                    <Link href="/portifolio" asChild>
+                                        <Pressable className="items-center justify-center w-fit h-fit">
+                                            <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                                Portfólio
+                                            </Text>
+                                        </Pressable>
+                                    </Link>
+
+                                    <Text className="text-white text-center text-md"> | <br /></Text>
+
+                                    <Link href="/sobre" asChild>
+                                        <Pressable className="items-center justify-center w-fit h-fit">
+                                            <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                                Sobre
+                                            </Text>
+                                        </Pressable>
+                                    </Link>
+
+                                    <Text className="text-white text-center text-md"> | <br /></Text>
+
+                                    <Link href="/contato" asChild>
+                                        <Pressable className=" items-center justify-center w-fit h-fit">
+                                            <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                                Contato
+                                            </Text>
+                                        </Pressable>
+                                    </Link>
+
+                                </View>
 
 
-                            <View className="w-fit h-fit flex-row ">
-
-                                <Pressable className=" items-center justify-center w-fit h-fit"
-                                    onPress={() => {
-                                        trackWhatsAppClick(url);
-                                    }}>
-                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                        WhatsApp
-                                    </Text>
-                                </Pressable>
-
-                                <Text className="text-white text-center text-md"> • <br /></Text>
-
-                                <Pressable className=" items-center justify-center w-fit h-fit"
-                                    onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
-                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                        Instagram
-                                    </Text>
-                                </Pressable>
-
-                                <Text className="text-white text-center text-md"> • <br /></Text>
-
-                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackEmailClick(emailUrl)}>
-                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                        Email
-                                    </Text>
-                                </Pressable>
-
-                                <Text className="text-white text-center text-md"> • <br /></Text>
-
-                                <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
-                                    <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
-                                        Banlek
-                                    </Text>
-                                </Pressable>
-
-                            </View>
 
 
-                            <Text className="text-white text-center text-md">
-                                © 2026 — Todos os direitos reservados.
-                            </Text>
-                        </View>
+                                <View className="w-fit h-fit flex-row ">
 
-
-                        <View className="w-full h-1/3 md:h-full md:w-1/4 items-center justify-center gap-6 lg:gap-6">
-
-                            <View className="flex-row items-center justify-center">
-
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 50 }}
-                                    className="items-center justify-center w-fit">
-                                    <Pressable
+                                    <Pressable className=" items-center justify-center w-fit h-fit"
                                         onPress={() => {
                                             trackWhatsAppClick(url);
                                         }}>
-                                        <img src="/icons/wppbranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
-                                    </Pressable>
-                                </motion.div>
-
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 50 }}
-                                    className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
-                                        <img src="/icons/instabranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
-                                    </Pressable>
-                                </motion.div>
-
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 50 }}
-                                    className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => trackEmailClick(emailUrl)}>
-                                        <img src="/icons/email1.svg" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
-                                    </Pressable>
-                                </motion.div>
-
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 50 }}
-                                    className="items-center justify-center w-fit">
-                                    <Pressable onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
-                                        <img src="/icons/banlek.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
-                                    </Pressable>
-                                </motion.div>
-
-                            </View>
-
-                            <motion.div
-                                whileHover={{ scale: 1.1 }}
-                                transition={{ type: "spring", stiffness: 120 }}
-                                className="flex-row items-center justify-center w-fit">
-
-                                <Link href="/contato" asChild>
-                                    <Pressable className="flex-row  backdrop-blur-sm w-fit   gap-2 py-1 px-12 md:py-2 md:px-14 lg:py-2 lg:px-16    items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-                                        {/*<img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />*/}
-                                        <Text className="text-center text-white text-lg md:text-md lg:text-xl">
-                                            Contato
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            WhatsApp
                                         </Text>
                                     </Pressable>
-                                </Link>
-                            </motion.div>
+
+                                    <Text className="text-white text-center text-md"> • <br /></Text>
+
+                                    <Pressable className=" items-center justify-center w-fit h-fit"
+                                        onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Instagram
+                                        </Text>
+                                    </Pressable>
+
+                                    <Text className="text-white text-center text-md"> • <br /></Text>
+
+                                    <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackEmailClick(emailUrl)}>
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Email
+                                        </Text>
+                                    </Pressable>
+
+                                    <Text className="text-white text-center text-md"> • <br /></Text>
+
+                                    <Pressable className=" items-center justify-center w-fit h-fit" onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
+                                        <Text className="text-white text-center text-md hover:underline hover:decoration-1 hover:underline-offset-1">
+                                            Banlek
+                                        </Text>
+                                    </Pressable>
+
+                                </View>
+
+
+                                <Text className="text-white text-center text-md">
+                                    © 2026 — Todos os direitos reservados.
+                                </Text>
+                            </View>
+
+
+                            <View className="w-full h-1/3 md:h-full md:w-1/4 items-center justify-center gap-6 lg:gap-6">
+
+                                <View className="flex-row items-center justify-center">
+
+                                    <motion.div
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ type: "spring", stiffness: 50 }}
+                                        className="items-center justify-center w-fit">
+                                        <Pressable
+                                            onPress={() => {
+                                                trackWhatsAppClick(url);
+                                            }}>
+                                            <img src="/icons/wppbranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                        </Pressable>
+                                    </motion.div>
+
+                                    <motion.div
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ type: "spring", stiffness: 50 }}
+                                        className="items-center justify-center w-fit">
+                                        <Pressable onPress={() => trackInstagramClick("https://www.instagram.com/fotoviniciusmarchetti/")}>
+                                            <img src="/icons/instabranco.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                        </Pressable>
+                                    </motion.div>
+
+                                    <motion.div
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ type: "spring", stiffness: 50 }}
+                                        className="items-center justify-center w-fit">
+                                        <Pressable onPress={() => trackEmailClick(emailUrl)}>
+                                            <img src="/icons/email1.svg" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                        </Pressable>
+                                    </motion.div>
+
+                                    <motion.div
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ type: "spring", stiffness: 50 }}
+                                        className="items-center justify-center w-fit">
+                                        <Pressable onPress={() => trackBanlekClick("https://banlek.com/viniciusmarchetti")}>
+                                            <img src="/icons/banlek.png" className="lg:w-8 lg:h-8 md:w-6 md:h-6 h-8 w-8 mx-2" />
+                                        </Pressable>
+                                    </motion.div>
+
+                                </View>
+
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 120 }}
+                                    className="hidden sm:block flex-row items-center justify-center w-fit">
+
+                                    <Link href="/contato" asChild>
+                                        <Pressable className={"flex-row  backdrop-blur-sm w-fit   gap-2 py-1 px-12 md:py-2 md:px-14 lg:py-2 lg:px-16    items-center justify-center rounded-full hover:shadow-none shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)]"}>
+                                            {/*<img src="/icons/telefoneBranco.svg" className="sm:w-6 sm:h-6 w-4 h-4" />*/}
+                                            <Text className="text-center text-white text-lg md:text-md lg:text-xl">
+                                                Contato
+                                            </Text>
+                                        </Pressable>
+                                    </Link>
+                                </motion.div>
+                            </View>
+
                         </View>
+                    </ScrollView>
 
-                    </View>
-                </ScrollView>
-
-                {/* ------------------ LIGHTBOX / MODAL ------------------ */}
-                <AnimatePresence>
-                    {selectedImage && (
-                        <motion.div
-                            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-8"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}>
-
-                            <motion.img
-                                key={selectedImage}
-                                src={selectedImage}
-                                initial={{ opacity: 0, scale: 0.92 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.92 }}
-                                transition={{ duration: 0.35, ease: "easeInOut" }}
-                                className="object-contain rounded-xl shadow-xl max-h-[95vh] max-w-[95vw]"
-                            />
-
-                            {/* X no canto superior direito */}
-                            <Pressable
-                                onPress={() => setSelectedIndex(null)}
-                                className="absolute top-2 right-5 md:top-12 md:right-12 bg-transparent rounded-full w-12 h-12 items-center justify-center cursor-pointer">
+                    {/* ------------------ LIGHTBOX / MODAL ------------------ */}
+                    <AnimatePresence>
+                        {selectedImage && (
+                            <motion.div
+                                className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-8"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}>
 
                                 <motion.img
-                                    src="/icons/x.svg"
-                                    className="w-4 h-4 sm:w-6 sm:h-6 aspect-square"
-                                    animate={{ scale: 2 }}
-                                    whileHover={{ scale: 2.4 }}
-                                    transition={{ type: "spring", stiffness: 200 }} />
-                            </Pressable>
+                                    key={selectedImage}
+                                    src={selectedImage}
+                                    initial={{ opacity: 0, scale: 0.92 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.92 }}
+                                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                                    className="object-contain rounded-xl shadow-xl max-h-[95vh] max-w-[95vw]"
+                                />
 
-                            {/* BOTÃO ANTERIOR */}
-                            {selectedIndex !== null && selectedIndex > 0 && (
+                                {/* X no canto superior direito */}
                                 <Pressable
-                                    onPress={() => setSelectedIndex(selectedIndex - 1)}
-                                    className="absolute left-6 md:left-20 top-1/2 -translate-y-1/2 bg-transparent rounded-full w-12 h-12 items-center justify-center cursor-pointer"
-                                >
+                                    onPress={() => setSelectedIndex(null)}
+                                    className="absolute top-2 right-5 md:top-12 md:right-12 bg-transparent rounded-full w-12 h-12 items-center justify-center cursor-pointer">
+
                                     <motion.img
-                                        src="/icons/setaesquerda.svg"
+                                        src="/icons/x.svg"
                                         className="w-4 h-4 sm:w-6 sm:h-6 aspect-square"
                                         animate={{ scale: 2 }}
                                         whileHover={{ scale: 2.4 }}
                                         transition={{ type: "spring", stiffness: 200 }} />
                                 </Pressable>
-                            )}
 
-                            {/* BOTÃO PRÓXIMO */}
-                            {selectedIndex !== null && selectedIndex < filtered.length - 1 && (
-                                <Pressable
-                                    onPress={() => setSelectedIndex(selectedIndex + 1)}
-                                    className="absolute right-6 md:right-20 top-1/2 -translate-y-1/2 bg-transparent rounded-full w-12 h-12 items-center justify-center cursor-pointer">
+                                {/* BOTÃO ANTERIOR */}
+                                {selectedIndex !== null && selectedIndex > 0 && (
+                                    <Pressable
+                                        onPress={() => setSelectedIndex(selectedIndex - 1)}
+                                        className="absolute left-6 md:left-20 top-1/2 -translate-y-1/2 bg-transparent rounded-full w-12 h-12 items-center justify-center cursor-pointer"
+                                    >
+                                        <motion.img
+                                            src="/icons/setaesquerda.svg"
+                                            className="w-4 h-4 sm:w-6 sm:h-6 aspect-square"
+                                            animate={{ scale: 2 }}
+                                            whileHover={{ scale: 2.4 }}
+                                            transition={{ type: "spring", stiffness: 200 }} />
+                                    </Pressable>
+                                )}
 
-                                    <motion.img
-                                        src="/icons/setadireita.svg"
-                                        className="w-4 h-4 sm:w-6 sm:h-6 aspect-square"
-                                        animate={{ scale: 2 }}
-                                        whileHover={{ scale: 2.4 }}
-                                        transition={{ type: "spring", stiffness: 200 }} />
-                                </Pressable>
-                            )}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                                {/* BOTÃO PRÓXIMO */}
+                                {selectedIndex !== null && selectedIndex < filtered.length - 1 && (
+                                    <Pressable
+                                        onPress={() => setSelectedIndex(selectedIndex + 1)}
+                                        className="absolute right-6 md:right-20 top-1/2 -translate-y-1/2 bg-transparent rounded-full w-12 h-12 items-center justify-center cursor-pointer">
 
+                                        <motion.img
+                                            src="/icons/setadireita.svg"
+                                            className="w-4 h-4 sm:w-6 sm:h-6 aspect-square"
+                                            animate={{ scale: 2 }}
+                                            whileHover={{ scale: 2.4 }}
+                                            transition={{ type: "spring", stiffness: 200 }} />
+                                    </Pressable>
+                                )}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                </View>
             </View>
-        </View>
         </>
     );
 }
