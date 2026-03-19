@@ -267,7 +267,7 @@ export default function portifolio() {
                                         className="px-5 py-4 w-full rounded-xl flex-row items-center gap-4 border border-white/20 bg-black/40 backdrop-blur-sm hover:bg-white/10">
 
                                         <img
-                                            src="/icons/instaBranco.png"
+                                            src="/icons/instabranco.png"
                                             className="w-auto h-8 sm:h-10 aspect-square z-10"
                                         />
 
@@ -309,7 +309,7 @@ export default function portifolio() {
                                 </View>
 
                                 <View className="flex-1 w-full items-center justify-center py-6 sm:py-4">
-                                    <img className="w-32 sm:w-56 lg:w-48 max-w-full h-auto max-h-full object-contain" src="/icons/minhaBranca.png" />
+                                    <img className="w-32 sm:w-56 lg:w-48 max-w-full h-auto max-h-full object-contain" src="/icons/MinhaBranca.png" />
                                 </View>
                             </View>
                         </View>

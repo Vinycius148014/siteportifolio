@@ -196,22 +196,13 @@ export default function Sobre() {
                       className="lg:block hidden h-auto w-full max-w-full object-cover rounded-2xl lg:h-full"
                       alt="Vinicius Marchetti"
                     />
-
-                    <View className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/55 px-4 py-2 backdrop-blur-sm">
-                      <Text className="text-sm font-medium text-white">Chapecó - SC</Text>
-                    </View>
-
-                    <View className="absolute bottom-4 left-4 rounded-2xl border border-white/15 bg-black/55 px-4 py-3 backdrop-blur-sm">
-                      <Text className="text-xl font-bold text-white">+200</Text>
-                      <Text className="text-xs text-white/70">eventos registrados</Text>
-                    </View>
                   </View>
                 </View>
 
                 <View className="w-full px-6 sm:px-0 lg:px-6 lg:w-7/12">
                   <Text className="text-4xl font-thin text-white sm:text-5xl">Sobre mim</Text>
-                  <Text className="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
-                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa, sempre buscando dar utilidade em cada clique.
+                  <Text className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+                    Sou Vinicius Marchetti, fotógrafo em Chapecó–SC e região. Trabalho com fotografia esportiva, automotiva, ensaios, eventos e fotografia comercial e corporativa, sempre buscando dar utilidade em cada clique.
                   </Text>
                   <Text className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
                     Acredito que a fotografia vai muito além de uma imagem bonita: ela pode agregar, fortalecer marcas, valorizar pessoas e impulsionar negócios.
@@ -225,29 +216,29 @@ export default function Sobre() {
 
                   <View className="mt-8 flex-row flex-wrap items-center gap-3">
                     <View className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                      <Text className="text-lg font-bold text-white">+200</Text>
-                      <Text className="text-xs text-white/70">eventos</Text>
+                      <Text className="text-md sm:text-lg font-bold text-white">Oeste de SC</Text>
+                      <Text className="text-xs text-white/70">atendimento regional</Text>
                     </View>
                     <View className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                      <Text className="text-lg font-bold text-white">10 anos</Text>
-                      <Text className="text-xs text-white/70">experiência</Text>
+                      <Text className="text-md sm:text-lg font-bold text-white">Até 24h</Text>
+                      <Text className="text-xs text-white/70">resposta</Text>
                     </View>
                     <View className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                      <Text className="text-lg font-bold text-white">48h</Text>
-                      <Text className="text-xs text-white/70">prévia</Text>
+                      <Text className="text-md sm:text-lg font-bold text-white">Planejamento visual</Text>
+                      <Text className="text-xs text-white/70">antes de fotografar</Text>
                     </View>
                   </View>
 
-                  <View className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <View className="mt-8 flex flex-col gap-3 sm:flex-row items-center w-full">
                     <Link href="/contato" asChild>
-                      <Pressable className="flex-row items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-4 backdrop-blur-sm shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)] hover:shadow-none">
+                      <Pressable className="flex-row w-56 sm:w-fit items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-4 backdrop-blur-sm shadow-white shadow-[0_0_10px_rgba(0,0,0,0.3)] hover:shadow-none">
                         <img src="/icons/telefoneBranco.svg" className="h-6 w-6" />
                         <Text className="text-lg text-white">Entrar em contato</Text>
                       </Pressable>
                     </Link>
 
                     <Link href="/portifolio" asChild>
-                      <Pressable className="flex-row items-center justify-center gap-2 rounded-full border border-white/20 bg-black/25 px-5 py-4 backdrop-blur-sm hover:bg-white/10">
+                      <Pressable className="flex-row w-56 sm:w-fit items-center justify-center gap-2 rounded-full border border-white/20 bg-black/25 px-5 py-4 backdrop-blur-sm hover:bg-white/10">
                         <img src="/icons/cameraBranca.svg" className="h-6 w-6" />
                         <Text className="text-lg text-white">Ver portfólio</Text>
                       </Pressable>
