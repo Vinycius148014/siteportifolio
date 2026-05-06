@@ -264,7 +264,7 @@ export default function App() {
 
           {/*---------------------------------------- PRIMEIRA PÁGINA --------------------------------- */}
 
-          <View className="relative w-full h-[calc(100dvh-64px)] overflow-hidden bg-black items-center justify-center">
+          <View className="relative w-full h-[calc(100dvh-64px)] min-h-[600px] overflow-hidden bg-black items-center justify-center">
 
 
             {/* VIDEO BACKGROUND */}
@@ -278,7 +278,7 @@ export default function App() {
               className="absolute inset-0 w-full h-full object-contain pointer-events-none -z-10 bg-black opacity-30"
             />
             <View className="items-center justify-around gap-0 flex-1 my-14">
-              <View className="flex-row w-full h-fit xl:mt-12">
+              <View className="flex-row w-full h-fit ">
 
                 <View className="w-1/3 h-fit xl:max-h-96" />
 
