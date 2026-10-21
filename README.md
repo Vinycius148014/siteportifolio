@@ -1,50 +1,28 @@
-# Welcome to your Expo app 👋
+# viniciusmarchetti.com.br – Site Pessoal e Portfólio de Imagens
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 1. O que é
 
-## Get started
+Este projeto é um site pessoal desenvolvido como uma galeria de imagens de alta performance, projetado para servir como um portfólio visual imersivo. O foco principal da aplicação é a entrega de conteúdo visual com velocidade máxima e fidelidade estética, utilizando técnicas modernas de renderização e compressão para garantir que a experiência do usuário seja fluida, independentemente do dispositivo de acesso.
 
-1. Install dependencies
+## 2. Funcionalidades
 
-   ```bash
-   npm install
-   ```
+- **Galeria Responsiva:** Interface totalmente adaptável que reorganiza o layout dinamicamente para smartphones, tablets e desktops.  
+- **Otimização de Imagens (AVIF):** Implementação do formato de compressão de última geração AVIF, permitindo imagens de alta qualidade com tamanhos de arquivo significativamente reduzidos.  
+- **Navegação por Categorias:** Sistema de filtragem e organização que permite ao usuário explorar diferentes segmentos do portfólio de forma intuitiva.  
+- **Lazy Loading:** Técnica de carregamento tardio que prioriza o conteúdo visível, economizando banda e acelerando o tempo de carregamento inicial da página.  
+- **Visualização Ampliada:** Integração de um sistema de lightbox para permitir que o usuário visualize cada imagem em detalhes, com suporte a gestos e zoom.  
 
-2. Start the app
+## 3. Tecnologias
 
-   ```bash
-   npx expo start
-   ```
+- **Expo:** Plataforma de código aberto para criar aplicações nativas universais para Android, iOS e web.  
+- **React Native:** Framework para construção de interfaces nativas, utilizando React Native Web para garantir a compatibilidade e performance no ambiente de navegadores.  
+- **React:** Biblioteca JavaScript principal para a construção de interfaces de usuário baseadas em componentes.  
+- **TypeScript:** Adição de tipagem estática ao JavaScript, garantindo maior robustez, menos erros em tempo de execução e melhor manutenção do código.  
+- **Tailwind CSS & Nativewind:** Sistema de estilização baseado em classes utilitárias que permite um design consistente e rápido tanto na web quanto em dispositivos móveis.  
+- **React Navigation:** Biblioteca para roteamento e navegação, permitindo transições suaves entre as diferentes seções do site.  
+- **Framer Motion:** Motor de animações utilizado para criar interações fluidas e transições visuais sofisticadas.  
+- **React Lightbox:** Componente especializado para a exibição de mídias em modo de tela cheia com alta performance.  
+- **Expo Router:** Roteador baseado em sistema de arquivos que unifica a navegação entre plataformas.  
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+> Projeto desenvolvido com foco em excelência técnica, otimização de performance e entrega visual de alta fidelidade.  
+> Documento elaborado em 06 de maio de 2026. As informações contidas são de responsabilidade do solicitante.
