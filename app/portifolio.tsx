@@ -20,21 +20,17 @@ export default function portifolio() {
 
         /*---------------------------------------- AUTOMOTIVA E OUTROS --------------------------------- */
 
+
+        { src: "/images/automotiva/IMG_5537.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5625.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5780.avif", category: "automotiva" },
         { src: "/images/bmwm2.avif", category: "automotiva" },
         { src: "/images/automotiva/9-509.avif", category: "automotiva" },
         { src: "/images/m2vermelha.avif", category: "automotiva" },
         { src: "/images/2carrofundo.avif", category: "automotiva" },
         { src: "/images/ferrari.avif", category: "automotiva" },
-        { src: "/images/jetta.avif", category: "automotiva" },
-        { src: "/images/motobmw.avif", category: "motociclismo" },
-        { src: "/images/padelazulpreparada.avif", category: "esportiva" },
-        { src: "/images/padelcansado.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-480.avif", category: "esportiva" },
         { src: "/images/rodera.avif", category: "automotiva" },
         { src: "/images/automotiva/9-559.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-553.avif", category: "automotiva" },
-
-
         { src: "/images/supraavif.avif", category: "automotiva" },
         { src: "/images/automotiva/9-511.avif", category: "automotiva" },
         { src: "/images/roderafundo.jpg", category: "automotiva" },
@@ -42,11 +38,12 @@ export default function portifolio() {
         { src: "/images/automotiva/9-507.avif", category: "automotiva" },
         { src: "/images/automotiva/9-510.avif", category: "automotiva" },
         { src: "/images/automotiva/9-512.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-519.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-558.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-564.avif", category: "automotiva" },
 
 
+        { src: "/images/automotiva/IMG_6008.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6021.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6061.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6138.avif", category: "automotiva" },
         { src: "/images/automotiva/9-513.avif", category: "automotiva" },
         { src: "/images/automotiva/9-515.avif", category: "automotiva" },
         { src: "/images/automotiva/9-514.avif", category: "automotiva" },
@@ -54,21 +51,49 @@ export default function portifolio() {
         { src: "/images/automotiva/9-516.avif", category: "automotiva" },
         { src: "/images/automotiva/9-521.avif", category: "automotiva" },
         { src: "/images/automotiva/9-518.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-523.avif", category: "automotiva" },
         { src: "/images/automotiva/9-552.avif", category: "automotiva" },
         { src: "/images/automotiva/9-554.avif", category: "automotiva" },
-
-
         { src: "/images/mulherporsche.avif", category: "automotiva" },
         { src: "/images/automotiva/9-527.avif", category: "automotiva" },
         { src: "/images/automotiva/9-517.avif", category: "automotiva" },
         { src: "/images/automotiva/9-525.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-526.avif", category: "automotiva" },
+
+        { src: "/images/duda.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6242.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6413.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6441.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6730.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_6807.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_7088.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_7261.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_7269.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_7334.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_7345.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_7378.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_0223.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_0310.avif", category: "automotiva" },
+        { src: "/images/automotiva/9-563.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_0362.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_2165.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5027.avif", category: "automotiva" },
+
+        { src: "/images/automotiva/IMG_5155.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5245.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5342.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5414.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5735.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5848.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5858.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5890.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5973.avif", category: "automotiva" },
+        { src: "/images/automotiva/IMG_5985.avif", category: "automotiva" },
         { src: "/images/automotiva/9-520.avif", category: "automotiva" },
         { src: "/images/automotiva/9-528.avif", category: "automotiva" },
         { src: "/images/automotiva/9-529.avif", category: "automotiva" },
         { src: "/images/automotiva/9-531.avif", category: "automotiva" },
-        { src: "/images/automotiva/9-563.avif", category: "automotiva" },
+        { src: "/images/automotiva/9-519.avif", category: "automotiva" },
+        { src: "/images/automotiva/9-558.avif", category: "automotiva" },
+        { src: "/images/automotiva/9-564.avif", category: "automotiva" },
 
 
         /*---------------------------------------- ENSAIOS --------------------------------- */
@@ -111,6 +136,7 @@ export default function portifolio() {
 
         /*---------------------------------------- MOTOCICLISMO --------------------------------- */
 
+        { src: "/images/motobmw.avif", category: "motociclismo" },
         { src: "/images/motociclismo/9-532.avif", category: "motociclismo" },
         { src: "/images/motociclismo/9-533.avif", category: "motociclismo" },
         { src: "/images/motociclismo/9-534.avif", category: "motociclismo" },
@@ -127,61 +153,64 @@ export default function portifolio() {
 
         /*---------------------------------------- ESPORTIVA --------------------------------- */
 
-        { src: "/images/esportiva/9-496.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-495.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-477.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-478.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-483.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-479.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_0435.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_0935.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_1268.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6239.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6346.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6621.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6733.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_7076.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_7735.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_7847.avif", category: "esportiva" },
 
+        { src: "/images/esportiva/IMG_4410.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_5739.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_1377.avif", category: "esportiva" },
+        { src: "/images/esportiva/9-477.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_1366.avif", category: "esportiva" },
+        { src: "/images/esportiva/9-483.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_4363.avif", category: "esportiva" },
         { src: "/images/padelliberdade.avif", category: "esportiva" },
         { src: "/images/esportiva/9-506.avif", category: "esportiva" },
         { src: "/images/esportiva/9-484.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-485.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-486.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-487.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-489.avif", category: "esportiva" },
         { src: "/images/esportiva/9-488.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0435.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0935.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_0705.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_0989.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_1321.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6295.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6394.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6624.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6736.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_7080.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_8021.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_7775.avif", category: "esportiva" },
 
         { src: "/images/esportiva/9-492.avif", category: "esportiva" },
         { src: "/images/esportiva/9-503.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_3308.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_1686.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_2544.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_5638.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_2205.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_5409.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_6008.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_6125.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_6407.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_6411.avif", category: "esportiva" },
         { src: "/images/esportiva/9-490.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-491.avif", category: "esportiva" },
         { src: "/images/esportiva/9-493.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-494.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-475.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-476.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-497.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_6594.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7775.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_8021.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_6901.avif", category: "esportiva" },
+
+        { src: "/images/esportiva/IMG_7031.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_7097.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_7155.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_7268.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_7352.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_7421.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_8565.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_9033.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_9101.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_9206.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_9446.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_9457.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_9922.avif", category: "esportiva" },
+        { src: "/images/esportiva/FOCO.jpg", category: "esportiva" },
+        { src: "/images/esportiva/IMG_5859.avif", category: "esportiva" },
+        { src: "/images/esportiva/IMG_5932.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_0736.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_1061.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_1404.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6302.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6416.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6839.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_7196.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_0887.avif", category: "esportiva" },
 
-
+        
         { src: "/images/esportiva/9-504.avif", category: "esportiva" },
         { src: "/images/esportiva/9-499.avif", category: "esportiva" },
         { src: "/images/esportiva/9-481.avif", category: "esportiva" },
@@ -190,12 +219,13 @@ export default function portifolio() {
         { src: "/images/esportiva/9-502.avif", category: "esportiva" },
         { src: "/images/esportiva/9-501.avif", category: "esportiva" },
         { src: "/images/esportiva/9-505.avif", category: "esportiva" },
-        { src: "/images/esportiva/9-482.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6302.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_6416.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_7196.avif", category: "esportiva" },
+        { src: "/images/trilha/IMG_0887.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_7793.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_1114.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6053.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_6319.avif", category: "esportiva" },
-        { src: "/images/trilha/IMG_6558.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_6947.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_7360.avif", category: "esportiva" },
         { src: "/images/trilha/IMG_7820.avif", category: "esportiva" },
@@ -266,7 +296,7 @@ export default function portifolio() {
     const initialFilter =
         typeof params.filter === "string" && params.filter.length > 0
             ? params.filter
-            : "all";
+            : "automotiva";
 
     const [activeFilter, setActiveFilter] = useState<string>(initialFilter);
 
@@ -274,7 +304,7 @@ export default function portifolio() {
         const q =
             typeof params.filter === "string" && params.filter.length > 0
                 ? params.filter
-                : "all";
+                : "automotiva";
 
         setActiveFilter(q);
     }, [params.filter]);
