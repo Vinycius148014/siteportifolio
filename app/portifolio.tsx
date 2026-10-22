@@ -14,6 +14,9 @@ import "../global.css";
 
 type Img = { src: string; category: string };
 
+// miniatura leve exibida na galeria (gerada por scripts/gerar-thumbs.sh); o modal usa o original
+const thumbOf = (src: string) => src.replace("/images/", "/thumbs/").replace(/\.[^.]+$/, ".avif");
+
 export default function portifolio() {
     // imagens com categoria
     const images: Img[] = [
@@ -320,6 +323,9 @@ export default function portifolio() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const selectedImage = selectedIndex !== null ? filtered[selectedIndex]?.src : null;
 
+    // original que já terminou de carregar no lightbox (enquanto for diferente, mostra "carregando")
+    const [lightboxLoadedSrc, setLightboxLoadedSrc] = useState<string | null>(null);
+
 
     const handleImgRef = (key: string, index: number) => (el: HTMLImageElement | null) => {
         if (!el) return;
@@ -617,7 +623,7 @@ export default function portifolio() {
                                         {/* IMAGEM */}
                                         <img
                                             ref={handleImgRef(key, index)}
-                                            src={image.src}
+                                            src={thumbOf(image.src)}
                                             className={`absolute inset-0 w-full h-full object-contain cursor-pointer hover:opacity-50 transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"
                                                 }`}
                                             onClick={() => setSelectedIndex(index)}
@@ -628,7 +634,15 @@ export default function portifolio() {
                                                 setRatioMap((prev) => ({ ...prev, [key]: ratio }));
                                                 setLoadedMap((prev) => ({ ...prev, [key]: true }));
                                             }}
-                                            onError={() => setLoadedMap((prev) => ({ ...prev, [key]: true }))}
+                                            onError={(e) => {
+                                                // sem miniatura (ex.: foto nova sem rodar o script): usa o original
+                                                const img = e.currentTarget as HTMLImageElement;
+                                                if (img.getAttribute("src") !== image.src) {
+                                                    img.src = image.src;
+                                                    return;
+                                                }
+                                                setLoadedMap((prev) => ({ ...prev, [key]: true }));
+                                            }}
                                             loading="lazy"
                                         />
 
@@ -842,7 +856,16 @@ export default function portifolio() {
                                     exit={{ opacity: 0, scale: 0.92 }}
                                     transition={{ duration: 0.35, ease: "easeInOut" }}
                                     className="object-contain rounded-xl shadow-xl max-h-[95vh] max-w-[95vw]"
+                                    onLoad={() => setLightboxLoadedSrc(selectedImage)}
+                                    onError={() => setLightboxLoadedSrc(selectedImage)}
                                 />
+
+                                {/* CARREGANDO (original em alta resolução) */}
+                                {lightboxLoadedSrc !== selectedImage && (
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none">
+                                        <div className="w-10 h-10 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                                    </div>
+                                )}
 
                                 {/* X no canto superior direito */}
                                 <Pressable
