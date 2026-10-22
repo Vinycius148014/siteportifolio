@@ -15,6 +15,16 @@ export default function AutoCarousel({
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+    // pré-carrega todas as imagens e as mantém em memória, para a troca não ficar preta
+    const preloadedRef = useRef<HTMLImageElement[]>([]);
+    useEffect(() => {
+        preloadedRef.current = images.map((src) => {
+            const img = new Image();
+            img.src = src;
+            return img;
+        });
+    }, [images]);
+
     const next = () => setIndex((i) => (i + 1) % images.length);
     const prev = () =>
         setIndex((i) => (i - 1 + images.length) % images.length);

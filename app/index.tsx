@@ -385,11 +385,11 @@ export default function App() {
 
                 <AutoCarousel
                   images={[
-                    "/images/padelliberdade.avif",
-                    "/images/esportiva/9-503.avif",
-                    "/images/esportiva/9-488.avif",
-                    "/images/esportiva/9-499.avif",
-                    "/images/bikear.avif",
+                    "/thumbs/esportiva/IMG_4410.avif",
+                    "/thumbs/esportiva/IMG_3308.avif",
+                    "/thumbs/esportiva/IMG_6411.avif",
+                    "/thumbs/esportiva/IMG_7421.avif",
+                    "/thumbs/esportiva/IMG_7097.avif",
                   ]} />
               </View>
 
@@ -404,11 +404,11 @@ export default function App() {
 
                 <AutoCarousel
                   images={[
-                    "/images/suprapreviaavif.avif",
-                    "/images/mulherporsche.avif",
-                    "/images/bmwm2.avif",
-                    "/images/automotiva/9-511.avif",
-                    "/images/automotiva/9-517.avif",
+                    "/thumbs/automotiva/IMG_5537.avif",
+                    "/thumbs/mulherporsche.avif",
+                    "/thumbs/automotiva/IMG_6008.avif",
+                    "/thumbs/automotiva/IMG_5780.avif",
+                    "/thumbs/automotiva/IMG_6730.avif",
                   ]} />
               </View>
 
@@ -423,11 +423,11 @@ export default function App() {
 
                 <AutoCarousel
                   images={[
-                    "/images/ensaios/9-574.avif",
-                    "/images/ensaios/corporativa-05.avif",
-                    "/images/ensaios/9-578.avif",
-                    "/images/ensaios/corporativa-11.avif",
-                    "/images/ensaios/corporativa-09.avif",
+                    "/thumbs/ensaios/9-574.avif",
+                    "/thumbs/ensaios/corporativa-05.avif",
+                    "/thumbs/ensaios/9-578.avif",
+                    "/thumbs/ensaios/corporativa-11.avif",
+                    "/thumbs/ensaios/corporativa-09.avif",
 
                   ]} />
               </View>
@@ -443,11 +443,11 @@ export default function App() {
 
                 <AutoCarousel
                   images={[
-                    "/images/motociclismo/9-537.avif",
-                    "/images/motociclismo/9-538.avif",
-                    "/images/motociclismo/9-561.avif",
-                    "/images/motociclismo/9-534.avif",
-                    "/images/motociclismo/9-535.avif",
+                    "/thumbs/motociclismo/9-537.avif",
+                    "/thumbs/motociclismo/9-538.avif",
+                    "/thumbs/motociclismo/9-561.avif",
+                    "/thumbs/motociclismo/9-534.avif",
+                    "/thumbs/motociclismo/9-535.avif",
                   ]} />
               </View>
 
